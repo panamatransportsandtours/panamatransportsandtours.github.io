@@ -2,233 +2,970 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panamá Transports and Tours PTT</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panamá Transports and Tours</title>
+<style>
+:root {
+  --primary: #004e92;
+  --secondary: #00c9a7;
+  --text: #333;
+  --bg: #f9f9f6;
+  --white: #fff;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
 
-    header {
-      background: url('src/img/banner.jpg') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
 
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-    }
+header {
+  background: url('src/img/banner1.png') center/cover no-repeat;
+  color: white;
+  padding: 120px 20px 60px;
+  text-align: center;
+  position: relative;
+}
+header::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+header * {
+  position: relative;
+  z-index: 1;
+}
+header img {
+  width: 120px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+header h1 {
+  font-size: 2.2em;
+}
+header p {
+  font-size: 1.2em;
+}
 
-    header h1, header p {
-      position: relative;
-      z-index: 1;
-    }
+nav {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 0;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: var(--secondary);
+}
 
-    header img {
-      width: 100px;
-      margin-bottom: 10px;
-      z-index: 1;
-      position: relative;
-    }
+.hero {
+  background-color: var(--secondary);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.hero h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.1em;
+  opacity: 0.95;
+}
 
-    nav {
-      background-color: #007bff;
-      text-align: center;
-      padding: 10px 0;
-    }
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+.section h2 {
+  text-align: center;
+  font-size: 2em;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: color 0.3s;
-    }
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
 
-    nav a:hover {
-      color: #ffd700;
-    }
+.destination {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.destination:hover {
+  transform: translateY(-4px);
+}
 
-    .hero {
-      padding: 40px 20px;
-      text-align: center;
-      background-color: #e6f2ff;
-    }
+.destination img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
-    .hero h2 {
-      font-size: 2em;
-      color: #004080;
-    }
+.destination-content {
+  padding: 20px;
+}
+.destination-content h3 {
+  color: var(--primary);
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+.destination-content p {
+  font-size: 0.96em;
+  line-height: 1.5;
+}
 
-    .section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+.destination-content button {
+  margin-top: 15px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.destination-content button:hover {
+  background-color: var(--secondary);
+}
 
-    .section h2 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-      color: #004080;
-    }
+.info-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 100%;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  animation: slideIn 0.3s ease-out;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
 
-    .packages {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
 
-    .package {
-      background-color: white;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
+.info-panel h3 {
+  color: var(--primary);
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
 
-    .package:hover {
-      transform: translateY(-5px);
-    }
+.info-panel p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
+}
 
-    .package-image {
-      background: url('src/img/paquete1.jpg') center/cover no-repeat;
-      height: 180px;
-    }
+.info-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
 
-    .package:nth-child(2) .package-image {
-      background-image: url('src/img/paquete2.jpg');
-    }
+.info-panel li {
+  margin-bottom: 12px;
+  padding-left: 1.5em;
+  position: relative;
+  font-size: 1em;
+  color: #333;
+}
 
-    .package-content {
-      padding: 20px;
-    }
+.info-panel li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
-    .package-content h3 {
-      margin-bottom: 10px;
-      color: #007bff;
-    }
+.info-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
 
-    .package-content p {
-      margin-bottom: 10px;
-    }
+.info-close:hover {
+  color: var(--primary);
+}
 
-    .package-content strong {
-      color: #28a745;
-    }
+@media screen and (max-width: 768px) {
+  .info-panel {
+    width: 100%;
+    padding: 20px;
+    border-radius: 0;
+  }
 
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9em;
-    }
+  .info-panel h3 {
+    font-size: 1.3rem;
+  }
 
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 999;
-      transition: transform 0.2s ease;
-    }
+  .info-panel p, .info-panel li {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
-    .whatsapp:hover {
-      transform: scale(1.1);
-    }
+  .whatsapp-reserva {
+    display: block;
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 
-    @media (max-width: 768px) {
-      .packages {
-        flex-direction: column;
-        align-items: center;
-      }
+  .info-close {
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+  }
+}
 
-      nav a {
-        display: inline-block;
-        margin: 8px;
-      }
-    }
-  </style>
+footer {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 0.95em;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background 0.3s;
+}
+.whatsapp:hover {
+  background-color: #1ebc5c;
+}
+
+/* Slider imagenes tours */
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.image-slider img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.image-slider img.active {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .destination-content button {
+    width: 100%;
+  }
+}
+
+.whatsapp-reserva {
+  display: inline-block;
+  width: 100%;
+  background-color: #25D366;
+  color: white;
+  font-size: 1.1em;
+  text-align: center;
+  padding: 14px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-reserva:hover {
+  background-color: #1ebe5d;
+}
+
+/* === QUIÉNES SOMOS === */
+.about-us {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1 1 500px;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.about-values {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.about-values li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #1ea362;
+}
+
+.about-img {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.about-img img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* === CONTACTO === */
+.contact-section {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.contact-details a {
+  color: #1ea362;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #1ea362;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #167b4d;
+}
+
+.btn-secondary {
+  background: #eeeeee;
+  color: #1ea362;
+  border: 2px solid #1ea362;
+}
+
+.btn-secondary:hover {
+  background: #1ea362;
+  color: #fff;
+}
+
+/* === FOOTER === */
+.site-footer {
+  background-color: #1ea362;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-social a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+.footer-social a:hover {
+  color: #d5fbe2;
+}
+
+/* NAV moderno */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary, #007B9F);
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--primary, #007B9F);
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* HERO visual atractivo */
+.hero {
+  background: url('src/img/panama-banner.jpg') no-repeat center center/cover;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size: 1.3em;
+  margin-bottom: 25px;
+}
+
+.btn-primary {
+  background: var(--primary, #007B9F);
+  color: #fff;
+  padding: 12px 28px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #005f7f;
+}
+.logo img {
+  height: 38px;
+  width: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.logo span {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+</style>
+
 </head>
 <body>
-
   <header>
-    <img src="src/img/logo-1.jpg" alt="Logo PTT" />
+    <!-- <img src="src/img/logo1.jpg" alt="Logo PTT" /> -->
     <h1>Panamá Transports and Tours PTT</h1>
     <p>Explora, Descubre, Disfruta</p>
   </header>
 
-  <nav>
-    <a href="#paquetes">Paquetes</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <div class="hero">
-    <h2>¡Vive la mejor experiencia de viaje con nosotros!</h2>
-    <p>Destinos nacionales e internacionales con todo incluido al mejor precio.</p>
+<!-- Navegación profesional con logotipo y efecto visual -->
+<nav class="main-nav">
+  <div class="logo">
+    <img src="src/img/logo1.jpg" alt="Panamá Transports and Tours" />
+    <span>Panamá Transports and Tours</span>
   </div>
+  <ul class="nav-links">
+    <li><a href="#destinos">Destinos</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
 
-  <section class="section" id="paquetes">
-    <h2>Paquetes Destacados</h2>
-    <div class="packages">
-      <div class="package">
-        <div class="package-image"></div>
-        <div class="package-content">
-          <h3>Bocas del Toro 3D/2N</h3>
-          <p>Incluye transporte, hotel, tour a Playa Estrella y más.</p>
-          <strong>$199 por persona</strong>
+<!-- Hero principal visualmente impactante -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Explora Panamá como nunca antes</h1>
+    <p>Desde playas paradisíacas hasta montañas mágicas, vive experiencias únicas con nuestros tours organizados a tu medida.</p>
+    <a href="#destinos" class="btn-primary">Ver tours disponibles 🚐</a>
+  </div>
+</section>
+
+  <section class="section" id="destinos">
+    <h2>Destinos Populares</h2>
+    <div class="destinations">
+      <div class="destination">
+          <div class="image-slider" data-tour="tour1">
+            <img src="src/img/city tours/citytours-1.jpg" alt="Comida sabrosa en el mercado del marisco" class="active" />
+            <img src="src/img/city tours/citytours-2.jpg" alt="Tour 1 Imagen 2" class="active" />
+            <img src="src/img/city tours/citytours-3.jpg" alt="Tour 1 Imagen 3" class="active" />
+            <img src="src/img/city tours/citytours-4.jpg" alt="Tour 1 Imagen 4" class="active" />
+            <img src="src/img/city tours/citytours-5.jpg" alt="Tour 1 Imagen 5" class="active" />
+            <img src="src/img/city tours/citytours-6.jpg" alt="Tour 1 Imagen 6" class="active" />
+          </div>
+        <div class="destination-content">
+          <h3>City Tour Panamá: Historia, Arquitectura y Sabor Local</h3>
+          <p>¿Listo para descubrir lo mejor de la Ciudad de Panamá?
+Este tour guiado te lleva por los lugares más emblemáticos y encantadores de la capital. Desde las maravillas de la ingeniería moderna hasta los sabores auténticos del mercado popular, cada parada cuenta una historia panameña que no te querrás perder.
+</p>
+          <button onclick="openInfo('citytours1')">Explora el tour completo 🚐</button>
         </div>
       </div>
-      <div class="package">
-        <div class="package-image"></div>
-        <div class="package-content">
-          <h3>Volcán + Boquete Full Day</h3>
-          <p>Paisajes, café, cascadas y aventura en un solo viaje.</p>
-          <strong>$85 por persona</strong>
+      <div class="destination">
+          <div class="image-slider" data-tour="tour2">
+            <img src="src/img/monkeyisland/monkeyisland-1.jpg" alt="Tour 2 Imagen 1" class="active" />
+            <img src="src/img/monkeyisland/monkeyisland-2.jpg" alt="Tour 2 Imagen 2" class="active" />
+            <img src="src/img/monkeyisland/monkeyisland-3.jpg" alt="Tour 2 Imagen 3" class="active" />
+            <img src="src/img/monkeyisland/monkeyisland-4.jpg" alt="Tour 2 Imagen 4" class="active" />
+          </div>
+        <div class="destination-content">
+          <h3>🐒 Isla de los Monos</h3>
+          <p>A solo minutos de la Ciudad de Panamá, esta experiencia te lleva al corazón del Parque Nacional Soberanía, navegando por el majestuoso Lago Gatún, donde conviven la ingeniería del Canal y la biodiversidad más vibrante del país. La Isla de los Monos es hogar de especies como los monos capuchinos, aulladores y tamarinos, que se acercan curiosos a los botes en busca de frutas y atención.
+</p>
+        <button onclick="openInfo('monkeyisland')">Explora el tour completo 🚐</button>
         </div>
       </div>
+      <div class="destination">
+            <div class="image-slider" data-tour="tour3">
+            <img src="src/img/city tours/citytours-1.jpg" alt="Tour 3 Imagen 1" class="active" />
+            <img src="src/img/city tours/citytours-2.jpg" alt="Tour 3 Imagen 2" class="active" />
+            <img src="src/img/city tours/citytours-3.jpg" alt="Tour 3 Imagen 3" class="active" />
+            <img src="src/img/city tours/citytours-4.jpg" alt="Tour 3 Imagen 4" class="active" />
+            <img src="src/img/city tours/citytours-5.jpg" alt="Tour 3 Imagen 5" class="active" />
+            <img src="src/img/city tours/citytours-6.jpg" alt="Tour 3 Imagen 6" class="active" />
+          </div>
+        <div class="destination-content">
+          <h3>San Blas – Tour Caribeño Express</h3>
+          <p>Conecta con las aguas cristalinas y arena blanca del Caribe panameño. Este tour a San Blas incluye transporte cómodo desde la ciudad, pago de impuestos comarcales, almuerzo típico y paseo en bote a una islas paradisíacas. Ideal para quienes desean un escape tropical de un solo día.</p>
+          <button onclick="openInfo('sanblas')">Explora el tour completo 🏝️</button>
+        </div>
+      </div>
+      <div class="destination">
+            <div class="image-slider" data-tour="tour4">
+            <img src="src/img/city tours/citytours-1.jpg" alt="Tour 4 Imagen 1" class="active" />
+            <img src="src/img/city tours/citytours-2.jpg" alt="Tour 4 Imagen 2" class="active" />
+            <img src="src/img/city tours/citytours-3.jpg" alt="Tour 4 Imagen 3" class="active" />
+            <img src="src/img/city tours/citytours-4.jpg" alt="Tour 4 Imagen 4" class="active" />
+            <img src="src/img/city tours/citytours-5.jpg" alt="Tour 4 Imagen 5" class="active" />
+            <img src="src/img/city tours/citytours-6.jpg" alt="Tour 4 Imagen 6" class="active" />
+          </div>
+        <div class="destination-content">
+          <h3>Shopping City – Compras y vistas urbanas</h3>
+          <p>Disfruta un día completo de compras y exploración en la Ciudad de Panamá. Este paquete incluye transporte a Albrook Mall, uno de los centros comerciales más grandes de Latinoamérica, además de paradas panorámicas en el Cosway de Amador y el icónico Puente de las Américas. Ideal para quienes quieren combinar compras, vistas y comodidad.</p>
+           <button onclick="openInfo('shoppingcity')">Explora el tour completo 🛍️</button>
+        </div>
+      </div>
+      <div class="destination">
+            <div class="image-slider" data-tour="tour5">
+            <img src="src/img/city tours/citytours-1.jpg" alt="Tour 5 Imagen 1" class="active" />
+            <img src="src/img/city tours/citytours-2.jpg" alt="Tour 5 Imagen 2" class="active" />
+            <img src="src/img/city tours/citytours-3.jpg" alt="Tour 5 Imagen 3" class="active" />
+            <img src="src/img/city tours/citytours-4.jpg" alt="Tour 5 Imagen 4" class="active" />
+            <img src="src/img/city tours/citytours-5.jpg" alt="Tour 5 Imagen 5" class="active" />
+            <img src="src/img/city tours/citytours-6.jpg" alt="Tour 5 Imagen 6" class="active" />
+          </div>
+        <div class="destination-content">
+          <h3>Playa Venao + Isla Iguana – Surf y Naturaleza</h3>
+          <p>Próximamente podrás disfrutar de un tour combinado que une la energía del surf en Playa Venao con la tranquilidad de Isla Iguana, una reserva natural con aguas cristalinas y arrecifes de coral. Ideal para quienes buscan aventura, relajación y contacto con la biodiversidad marina.</p>
+           <button disabled style="background-color: #999;">Disponible próximamente 🌊</button>
+        </div>
+      </div>
+      <div class="destination">
+            <div class="image-slider" data-tour="tour6">
+            <img src="src/img/city tours/citytours-1.jpg" alt="Tour 6 Imagen 1" class="active" />
+            <img src="src/img/city tours/citytours-2.jpg" alt="Tour 6 Imagen 2" class="active" />
+            <img src="src/img/city tours/citytours-3.jpg" alt="Tour 6 Imagen 3" class="active" />
+            <img src="src/img/city tours/citytours-4.jpg" alt="Tour 6 Imagen 4" class="active" />
+            <img src="src/img/city tours/citytours-5.jpg" alt="Tour 6 Imagen 5" class="active" />
+            <img src="src/img/city tours/citytours-6.jpg" alt="Tour 6 Imagen 6" class="active" />
+          </div>
+        <div class="destination-content">
+          <h3>⛰️ Tour al Valle de Antón – Naturaleza y Bienestar</h3>
+          <p>Explora este mágico destino ubicado dentro de un cráter volcánico, rodeado de montañas, aguas termales y vida silvestre. Una escapada perfecta para reconectar con la naturaleza.</p>
+          <button onclick="openInfo('antontour')">Explora el tour completo 🏞️</button>
+        </div>
+      </div>
+      <!-- AQUÍ puedes insertar los demás destinos existentes sin borrarlos -->
     </div>
   </section>
+<section class="section about-us" id="nosotros">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>🌎 ¿Quiénes Somos?</h2>
+      <p>En <strong>Panamá Transports and Tours</strong>, llevamos más de 5 años creando experiencias turísticas auténticas e inolvidables en todo Panamá. Somos una agencia 100% panameña enfocada en brindar atención personalizada, seguridad y conexión con la naturaleza y cultura del país.</p>
+      <ul class="about-values">
+        <li>✅ Atención profesional y cercana</li>
+        <li>✅ Viajes seguros y organizados</li>
+        <li>✅ Experiencias que conectan con lo local</li>
+      </ul>
+    </div>
+    <div class="about-img">
+      <img src="src/img/quienes-somos.jpg" alt="Equipo Panamá Transports and Tours">
+    </div>
+  </div>
+</section>
 
-  <section class="section" id="nosotros">
-    <h2>¿Quiénes Somos?</h2>
-    <p>Somos una agencia apasionada por el turismo. Por más de 5 años hemos brindado experiencias inolvidables por todo Panamá y el extranjero. Nuestro compromiso es ofrecer viajes seguros, organizados y llenos de aventura.</p>
-  </section>
+<section class="section contact-section" id="contacto">
+  <div class="contact-container">
+    <h2>📬 Contáctanos</h2>
+    <p>¿Tienes preguntas o deseas reservar un tour? ¡Estamos listos para ayudarte!</p>
+    <div class="contact-details">
+      <p>📞 <a href="tel:+50764495803">+507 6449-5803</a></p>
+      <p>✉️ <a href="mailto:panamatransportsandtours@gmail.com">panamatransportsandtours@gmail.com</a></p>
+      <a class="btn-secondary" href="https://wa.me/50764495803" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-  <section class="section" id="contacto">
-    <h2>Contáctanos</h2>
-    <p>📞 +507 6449-5803<br>✉️ panamatransportsandtours@gmail.com</p>
-  </section>
+<footer class="site-footer">
+  <div class="footer-container">
+    <p>&copy; 2025 <strong>Panamá Transports and Tours PTT</strong>. Todos los derechos reservados.</p>
+    <p class="footer-social">
+      🌐 Síguenos en: 
+      <a href="#" target="_blank">Instagram</a> |
+      <a href="#" target="_blank">Facebook</a> |
+      <a href="#" target="_blank">TikTok</a>
+    </p>
+  </div>
+</footer>
 
-  <footer>
-    © 2025 Panamá Transports and Tours PTT. Todos los derechos reservados.
-  </footer>
 
   <a class="whatsapp" href="https://wa.me/50764495803" target="_blank">WhatsApp</a>
+  <div class="info-panel" id="info-panel">
+    <span class="info-close" onclick="closeInfo()">&times;</span>
+    <div id="info-content"></div>
+  </div>
+  <script>
+const info = {
+  citytours1: `
+    <h3>🗺️ City Tour Panamá: Historia, Arquitectura y Sabor Local</h3>
+    <p><strong>¿Listo para descubrir lo mejor de la Ciudad de Panamá?</strong></p>
+    <p>Este tour guiado te lleva por los lugares más emblemáticos y encantadores de la capital. Desde las maravillas de la ingeniería moderna hasta los sabores auténticos del mercado popular, cada parada cuenta una historia panameña que no te querrás perder.</p>
+    <ul>
+      <li>🛳️ Canal de Panamá – Centro de Visitantes de Miraflores</li>
+      <li>🕍 Casco Antiguo – Iglesias, plazas y edificios coloniales</li>
+      <li>🌉 Calzada de Amador – Vistas al mar y skyline moderno</li>
+      <li>🏙️ El Tornillo – Icono arquitectónico</li>
+      <li>🐟 Mercado de Mariscos – Gastronomía local y ceviches frescos</li>
+      <li>🧵 Mercado de Artesanías – Recuerdos auténticos panameños</li>
+    </ul>
+    <p>🕒 Duración aproximada: 4–5 horas</p>
+    <p>👥 Ideal para: turistas, grupos corporativos, amantes de la fotografía, visitantes en tránsito</p>
+    <a href="https://wa.me/50764495803?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+        class="whatsapp-reserva" target="_blank">
+        Reservar este tour por WhatsApp 📲
+    </a>
+  `,
+  monkeyisland: `
+  <h3>🐒 Isla de los Monos – Monkey Island</h3>
+  <p><strong>Selva tropical, fauna exótica y navegación por el Canal de Panamá</strong></p>
+  <p>A solo minutos de la Ciudad de Panamá, esta experiencia te lleva al corazón del <em>Parque Nacional Soberanía</em>, navegando por el majestuoso <em>Lago Gatún</em>, donde conviven la ingeniería del Canal y la biodiversidad más vibrante del país. La Isla de los Monos es hogar de especies como los <strong>monos capuchinos</strong>, <strong>aulladores</strong> y <strong>tamarinos</strong>, que se acercan curiosos a los botes en busca de frutas y atención.</p>
+  <ul>
+    <li>🚤 Paseo en bote por el Lago Gatún</li>
+    <li>🐵 Avistamiento de monos en su hábitat natural</li>
+    <li>🍌 Frutas tropicales incluidas para compartir</li>
+    <li>🚐 Transporte cómodo desde la ciudad</li>
+  </ul>
+  <p>🕒 Duración aproximada: 3–4 horas</p>
+  <p>👥 Ideal para: familias, amantes de la vida silvestre, viajeros en tránsito, fotógrafos</p>
+    <a href="https://wa.me/50764495803?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+        class="whatsapp-reserva" target="_blank">
+        Reservar este tour por WhatsApp 📲
+    </a>
+`,
+sanblas: `
+  <h3>🏝️ Tours a San Blas – Guna Yala</h3>
+  <p><strong>Islas paradisíacas, cultura indígena y aguas cristalinas</strong></p>
+  <p>Descubre el archipiélago de San Blas, un conjunto de más de 360 islas en el Caribe panameño, habitadas por la comunidad indígena Guna Yala. Este tour te lleva a vivir una experiencia auténtica entre playas de arena blanca, aguas turquesas y tradiciones milenarias. Ideal para quienes buscan desconexión total, belleza natural y contacto cultural.</p>
+  <ul>
+    <li>🚐 Transporte terrestre en 4x4 desde Ciudad de Panamá</li>
+    <li>🧾 Pago de impuestos comarcales incluido</li>
+    <li>🍽️ Almuerzo típico con bebida</li>
+    <li>🚤 Paseo en bote hacia islas</li>
+  </ul>
+  <p>🕒 Duración aproximada: 12 horas (pasadía)</p>
+  <p>📍 Islas visitadas: Isla Perro Chico o Grande, Isla Diablo, Piscina Natural</p>
+  <p>👥 Ideal para: viajeros en busca de naturaleza virgen, cultura indígena, snorkel y fotografía</p>
+    <a href="https://wa.me/50764495803?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+        class="whatsapp-reserva" target="_blank">
+        Reservar este tour por WhatsApp 📲
+    </a>
+`,
+shoppingcity: `
+  <h3>🛍️ Shopping City – Compras y vistas urbanas</h3>
+  <p><strong>Un día de compras, paisajes y comodidad</strong></p>
+  <p>Este tour te lleva al corazón comercial y panorámico de la Ciudad de Panamá. Comienza con transporte directo al <em>Albrook Mall</em>, el centro comercial más grande de Centroamérica, con más de 700 tiendas, restaurantes y entretenimiento. Luego, disfruta de una parada escénica en el <em>Cosway de Amador</em>, con vistas al skyline y acceso a tiendas artesanales. Finaliza con una visita al <em>Puente de las Américas</em>, símbolo de conexión continental y postal obligada.</p>
+  <ul>
+    <li>🚐 Transporte ida y vuelta desde tu hotel o punto acordado</li>
+    <li>🛒 Tiempo libre para compras en Albrook Mall</li>
+    <li>🌉 Parada panorámica en el Puente de las Américas</li>
+    <li>🌴 Recorrido por el Cosway de Amador</li>
+  </ul>
+  <p>🕒 Duración aproximada: 6–7 horas</p>
+  <p>👥 Ideal para: amantes de las compras, viajeros en tránsito, familias, grupos corporativos</p>
+    <a href="https://wa.me/50764495803?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+        class="whatsapp-reserva" target="_blank">
+        Reservar este tour por WhatsApp 📲
+    </a>
+`,
+venaoiguana: `
+  <h3>🌊 Playa Venao + Isla Iguana – Surf y Naturaleza</h3>
+  <p><strong>Un día entre olas, corales y paisajes protegidos</strong></p>
+  <p>Este tour te llevará a vivir dos experiencias complementarias: la adrenalina del surf en Playa Venao, reconocida internacionalmente por sus olas consistentes, y la serenidad de Isla Iguana, una reserva natural con playas vírgenes, iguanas negras, aves marinas y arrecifes ideales para snorkel.</p>
+  <ul>
+    <li>🏄‍♂️ Tiempo libre para surf o relax en Playa Venao</li>
+    <li>🚤 Paseo en bote desde Playa El Arenal hacia Isla Iguana</li>
+    <li>🐠 Snorkel en arrecifes de coral</li>
+    <li>📸 Avistamiento de aves y fauna marina</li>
+  </ul>
+  <p>🕒 Duración aproximada: 8–9 horas</p>
+  <p>👥 Ideal para: surfistas, amantes de la naturaleza, fotógrafos, parejas y grupos</p>
+  <p>📌 Este tour estará disponible próximamente. ¡Mantente atento a nuestras redes!</p>
+  <a href="https://wa.me/50764495803?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+        class="whatsapp-reserva" target="_blank">
+        Reservar este tour por WhatsApp 📲
+  </a>
+`,
+antontour: `
+<h3>⛰️ Tour al Valle de Antón – Naturaleza, Bienestar y Magia de Altura</h3>
+<p><strong>Un día para reconectar con la naturaleza en un cráter volcánico</strong></p>
+
+<p>Vive una experiencia única en el Valle de Antón, el único pueblo en Panamá ubicado dentro de un cráter volcánico extinto. Este tour te sumerge en paisajes montañosos, aguas termales revitalizantes, senderos rodeados de flora y fauna, y atracciones que celebran la biodiversidad local.</p>
+
+<ul>
+  <li>🚐 Transporte desde hoteles en Ciudad de Panamá hasta El Valle de Antón</li>
+  <li>🍽️ Almuerzo típico y snacks incluidos</li>
+  <li>♨️ Visita a aguas termales para relajarte</li>
+  <li>🦜 Entrada al zoológico local</li>
+  <li>🦋 Recorrido por el mariposario</li>
+  <li>🥾 Caminata guiada por senderos ecológicos</li>
+</ul>
+
+<p>🕒 Duración aproximada: Full day (8–10 horas)</p>
+<p>👥 Ideal para: amantes de la naturaleza, familias, parejas, viajeros que buscan desconexión y bienestar</p>
+<p>📌 Reserva con anticipación – cupos limitados</p>
+<a href="https://wa.me/50764495803?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+        class="whatsapp-reserva" target="_blank">
+        Reservar este tour por WhatsApp 📲
+</a>
+`
+}
+
+    function openInfo(key) {
+      document.getElementById('info-content').innerHTML = info[key];
+      document.getElementById('info-panel').style.display = 'block';
+    }
+    function closeInfo() {
+      document.getElementById('info-panel').style.display = 'none';
+    }
+    window.addEventListener('click', function(event) {
+      const panel = document.getElementById('info-panel');
+      if (event.target === panel) closeInfo();
+    });
+
+    /*AQUI ESTA EL SCRIPT PARA EL SLIDER*/
+const sliders = document.querySelectorAll('.image-slider');
+
+  sliders.forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    let index = 0;
+    let interval;
+
+    function showImage(i) {
+      images.forEach((img, idx) => {
+        img.classList.toggle('active', idx === i);
+      });
+    }
+
+    function startSlider() {
+      if (images.length <= 1) return;
+      if (interval) return;
+      interval = setInterval(() => {
+        index = (index + 1) % images.length;
+        showImage(index);
+      }, 2000);
+    }
+
+    function stopSlider() {
+      clearInterval(interval);
+      interval = null;
+      index = 0;
+      showImage(index);
+    }
+
+    slider.addEventListener('mouseenter', startSlider);
+    slider.addEventListener('mouseleave', stopSlider);
+
+    // Móvil - activar con toque
+    slider.addEventListener('touchstart', startSlider);
+    document.body.addEventListener('touchstart', function (e) {
+      if (!slider.contains(e.target)) stopSlider();
+    });
+
+    // Inicializar con primera imagen visible
+    showImage(0);
+  });
+
+  
+
+  </script>
+<a href="https://wa.me/50761234567?text=Hola%20Panama%20Transports%20and%20Tours%2C%20me%20interesa%20uno%20de%20sus%20tours%20😊" 
+   class="whatsapp" target="_blank" aria-label="WhatsApp">
+  💬 ¿Hablamos por WhatsApp?
+</a>
+
+<script>
+  // Función para cerrar el panel lateral
+  function closeInfo() {
+    document.getElementById('info-panel').style.display = 'none';
+  }
+
+  // Cierra el panel si el usuario hace clic fuera de él
+  document.addEventListener('click', function (event) {
+    const panel = document.getElementById('info-panel');
+
+    // Si el panel no está visible, no hacemos nada
+    if (panel.style.display !== 'block') return;
+
+    // Si el clic fue dentro del panel o en un botón que lo abre, no cerramos
+    if (panel.contains(event.target) || event.target.closest('[onclick^="openInfo"]')) return;
+
+    // Si no, cerramos el panel
+    closeInfo();
+  });
+
+  // Cierra el panel al presionar Escape
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeInfo();
+  });
+</script>
 
 </body>
 </html>
