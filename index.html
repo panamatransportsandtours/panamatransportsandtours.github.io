@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Panamá Transports and Tours</title>
 <style>
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
 :root {
   --primary: #004e92;
   --secondary: #00c9a7;
@@ -53,29 +59,48 @@ header p {
 }
 
 nav {
-  background-color: var(--primary);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 12px 0;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background-color: var(--primary); /* O tu color */
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
+
 nav a {
   color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1em;
-  transition: color 0.3s;
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 0.95rem;
 }
+
+a {
+  display: inline-block;           /* Permite que width y word-break funcionen bien */
+  max-width: 100%;                 /* Que nunca se pase del contenedor */
+  word-break: break-word;         /* Rompe palabras largas */
+  overflow-wrap: anywhere;        /* También para forzar saltos si es necesario */
+}
+
 nav a:hover {
   color: var(--secondary);
 }
 
 .hero {
-  background-color: var(--secondary);
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* para escritorio */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .hero h2 {
   font-size: 2em;
   margin-bottom: 10px;
@@ -83,6 +108,31 @@ nav a:hover {
 .hero p {
   font-size: 1.1em;
   opacity: 0.95;
+}
+
+.nav-links {
+  flex-wrap: wrap;        /* Permite que los enlaces salten de línea */
+  max-width: 100%;        /* No se salga del contenedor */
+  overflow-x: hidden;     /* Por si acaso */
+}
+
+/* Ajustar en móviles */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh;
+    padding: 20px;
+    background-position: top center;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 16px;
+    text-align: center;
+  }
 }
 
 .section {
@@ -221,8 +271,10 @@ nav a:hover {
 
 @media screen and (max-width: 768px) {
   .info-panel {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     padding: 20px;
+    box-sizing: border-box;
     border-radius: 0;
   }
 
@@ -230,27 +282,28 @@ nav a:hover {
     font-size: 1.3rem;
   }
 
-  .info-panel p, .info-panel li {
+  .info-panel p,
+  .info-panel li {
     font-size: 1rem;
     line-height: 1.5;
   }
 
   .whatsapp-reserva {
-    display: block;
-    margin-top: 20px;
     font-size: 1rem;
-    padding: 10px;
+    padding: 12px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
     background-color: #25d366;
     color: white;
-    text-align: center;
     border-radius: 8px;
     text-decoration: none;
   }
 
   .info-close {
+    font-size: 22px;
     top: 10px;
     right: 15px;
-    font-size: 22px;
   }
 }
 
@@ -262,23 +315,29 @@ footer {
   font-size: 0.95em;
 }
 
-.whatsapp {
+.whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
+  bottom: 70px; /* Justo encima del nav inferior */
+  right: 15px;
+  z-index: 1100;
+  background-color: #25d366;
   color: white;
-  padding: 14px 18px;
-  border-radius: 50px;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 999;
-  transition: background 0.3s;
+  transition: transform 0.2s ease;
 }
-.whatsapp:hover {
-  background-color: #1ebc5c;
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
+
 
 /* Slider imagenes tours */
 .image-slider {
@@ -382,8 +441,9 @@ footer {
 /* === CONTACTO === */
 .contact-section {
   background: #fff;
-  padding: 60px 20px;
+  padding: 20px;
   text-align: center;
+  font-size: 14px;
 }
 
 .contact-container {
@@ -392,14 +452,14 @@ footer {
 }
 
 .contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: 20px;
+  margin-bottom: 10px;
   color: #222;
 }
 
 .contact-details p {
   font-size: 1.1rem;
-  margin: 10px 0;
+  margin: 5px;
   color: #333;
 }
 
@@ -412,6 +472,14 @@ footer {
 .contact-details a:hover {
   text-decoration: underline;
 }
+
+.email-link {
+  font-size: 14px;         /* o el tamaño que necesites */
+  word-break: break-word;  /* para evitar que se desborde */
+  color: #007bff;          /* opcional: color azul tipo enlace */
+  text-decoration: none;   /* opcional: sin subrayado */
+}
+
 
 .btn-primary,
 .btn-secondary {
@@ -523,6 +591,13 @@ footer {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+}
+
+
 /* HERO visual atractivo */
 .hero {
   background: url('src/img/panama-banner.jpg') no-repeat center center/cover;
@@ -545,7 +620,7 @@ footer {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 80%;
   padding: 20px;
 }
 
@@ -586,6 +661,96 @@ footer {
   color: var(--primary);
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  background-color: var(--primary); /* o el color que uses */
+  overflow-x: auto;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  font-weight: bold;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
+/* estructura de la cabecera */
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* enlaces */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+ 
+  .hero {
+  height: 50vh; /* para escritorio */
+}
+
+.hero h1 {
+  font-size: 1em;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size: 1em;
+  margin-bottom: 25px;
+}
+
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #004080;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+@media (min-width: 769px) {
+  .bottom-nav {
+    display: none; /* Solo mostrar en móviles */
+  }
+}
+
 </style>
 
 </head>
@@ -601,6 +766,7 @@ footer {
   <div class="logo">
     <img src="src/img/logo1.jpg" alt="Panamá Transports and Tours" />
     <span>Panamá Transports and Tours</span>
+
   </div>
   <ul class="nav-links">
     <li><a href="#destinos">Destinos</a></li>
@@ -649,7 +815,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
           <h3>🐒 Isla de los Monos</h3>
           <p>A solo minutos de la Ciudad de Panamá, esta experiencia te lleva al corazón del Parque Nacional Soberanía, navegando por el majestuoso Lago Gatún, donde conviven la ingeniería del Canal y la biodiversidad más vibrante del país. La Isla de los Monos es hogar de especies como los monos capuchinos, aulladores y tamarinos, que se acercan curiosos a los botes en busca de frutas y atención.
 </p>
-        <button onclick="openInfo('monkeyisland')">Explora el tour completo 🚐</button>
+        <button onclick="openInfo('monkey')">Explora el tour completo 🚐</button>
         </div>
       </div>
       <div class="destination">
@@ -738,7 +904,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
     <p>¿Tienes preguntas o deseas reservar un tour? ¡Estamos listos para ayudarte!</p>
     <div class="contact-details">
       <p>📞 <a href="tel:+50764495803">+507 6449-5803</a></p>
-      <p>✉️ <a href="mailto:panamatransportsandtours@gmail.com">panamatransportsandtours@gmail.com</a></p>
+      <p>✉️ <a href="mailto:panamatransportsandtours@gmail.com" class="email-link">panamatransportsandtours@gmail.com</a></p>
       <a class="btn-secondary" href="https://wa.me/50764495803" target="_blank">Escríbenos por WhatsApp</a>
     </div>
   </div>
@@ -762,6 +928,26 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
     <span class="info-close" onclick="closeInfo()">&times;</span>
     <div id="info-content"></div>
   </div>
+
+<div class="bottom-nav">
+  <a href="#inicio" class="nav-item">
+    <i class="fas fa-home"></i>
+    <span>Inicio</span>
+  </a>
+  <a href="#destinos" class="nav-item">
+    <i class="fas fa-map-marked-alt"></i>
+    <span>Destinos</span>
+  </a>
+  <a href="#nosotros" class="nav-item">
+    <i class="fas fa-info-circle"></i>
+    <span>Nosotros</span>
+  </a>
+  <a href="#contacto" class="nav-item">
+    <i class="fas fa-phone"></i>
+    <span>Contacto</span>
+  </a>
+</div>
+
   <script>
 const info = {
   citytours1: `
@@ -783,7 +969,7 @@ const info = {
         Reservar este tour por WhatsApp 📲
     </a>
   `,
-  monkeyisland: `
+  monkey: `
   <h3>🐒 Isla de los Monos – Monkey Island</h3>
   <p><strong>Selva tropical, fauna exótica y navegación por el Canal de Panamá</strong></p>
   <p>A solo minutos de la Ciudad de Panamá, esta experiencia te lleva al corazón del <em>Parque Nacional Soberanía</em>, navegando por el majestuoso <em>Lago Gatún</em>, donde conviven la ingeniería del Canal y la biodiversidad más vibrante del país. La Isla de los Monos es hogar de especies como los <strong>monos capuchinos</strong>, <strong>aulladores</strong> y <strong>tamarinos</strong>, que se acercan curiosos a los botes en busca de frutas y atención.</p>
@@ -936,9 +1122,9 @@ const sliders = document.querySelectorAll('.image-slider');
   
 
   </script>
-<a href="https://wa.me/50761234567?text=Hola%20Panama%20Transports%20and%20Tours%2C%20me%20interesa%20uno%20de%20sus%20tours%20😊" 
-   class="whatsapp" target="_blank" aria-label="WhatsApp">
-  💬 ¿Hablamos por WhatsApp?
+
+<a href="https://wa.me/507XXXXXXX" class="whatsapp-float" target="_blank" aria-label="Chat por WhatsApp">
+  <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
@@ -969,4 +1155,3 @@ const sliders = document.querySelectorAll('.image-slider');
 
 </body>
 </html>
-
