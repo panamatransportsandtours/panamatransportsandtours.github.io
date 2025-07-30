@@ -4,12 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Panamá Transports and Tours</title>
 <style>
 
 html, body {
   overflow-x: hidden;
   width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-nav, .nav-links {
+  overflow: hidden !important;
 }
 :root {
   --primary: #004e92;
@@ -24,22 +36,24 @@ html, body {
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  /*font-family: 'Segoe UI', sans-serif;*/
   background-color: var(--bg);
   color: var(--text);
 }
 
 header {
-  background: url('src/img/banner1.png') center/cover no-repeat;
-  color: white;
-  padding: 120px 20px 60px;
-  text-align: center;
   position: relative;
+  height: 120px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 header::after {
   content: "";
   position: absolute; inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0));
   z-index: 0;
 }
 header * {
@@ -47,8 +61,9 @@ header * {
   z-index: 1;
 }
 header img {
-  width: 120px;
-  border-radius: 12px;
+  width: 160px;
+  height: auto;
+  border-radius: 0px; /* puedes poner 0 si quitas el fondo blanco */
   margin-bottom: 10px;
 }
 header h1 {
@@ -60,23 +75,40 @@ header p {
 
 nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 10px 15px;
-  background-color: var(--primary); /* O tu color */
-  overflow-x: hidden;
-  box-sizing: border-box;
+  gap: 25px;
+  padding: 15px 30px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  white-space: nowrap;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 5px 8px;
+  transition: color 0.3s ease;
 }
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary, #00c6a7);
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
 
 a {
   display: inline-block;           /* Permite que width y word-break funcionen bien */
@@ -86,28 +118,11 @@ a {
 }
 
 nav a:hover {
-  color: var(--secondary);
+  color: var(--secondary, #00c6a7);
 }
 
-.hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* para escritorio */
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-.hero p {
-  font-size: 1.1em;
-  opacity: 0.95;
+nav a:hover::after {
+  width: 100%;
 }
 
 .nav-links {
@@ -116,23 +131,27 @@ nav a:hover {
   overflow-x: hidden;     /* Por si acaso */
 }
 
+/*SEPARADOR DE SECCIONES*/
+.wave-separator {
+  line-height: 0;
+  position: relative;
+  margin-top: -1px;
+}
+
+.wave-separator svg {
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+.wave-separator {
+  position: relative;
+  z-index: 2;
+}
+
 /* Ajustar en móviles */
 @media (max-width: 768px) {
-  .hero {
-    height: 50vh;
-    padding: 20px;
-    background-position: top center;
-  }
 
-  .hero h1 {
-    font-size: 24px;
-    text-align: center;
-  }
 
-  .hero p {
-    font-size: 16px;
-    text-align: center;
-  }
 }
 
 .section {
@@ -269,6 +288,49 @@ nav a:hover {
   color: var(--primary);
 }
 
+.destinos-section {
+  background: linear-gradient(180deg, #f4f9fc 0%, #e8f3ff 100%);
+  padding: 100px 40px;
+}
+
+/* Sección general con fondo atractivo */
+#destinos.section {
+  background: linear-gradient(180deg, #f4f9fc 0%, #e8f3ff 100%);
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Título centrado */
+#destinos h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0b2e59;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+
+/* Tarjeta individual */
+.destination {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
 @media screen and (max-width: 768px) {
   .info-panel {
     width: 100vw;
@@ -317,7 +379,7 @@ footer {
 
 .whatsapp-float {
   position: fixed;
-  bottom: 70px; /* Justo encima del nav inferior */
+  bottom: 70px;
   right: 15px;
   z-index: 1100;
   background-color: #25d366;
@@ -331,11 +393,12 @@ footer {
   font-size: 26px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.7);
 }
 
 
@@ -347,17 +410,51 @@ footer {
   overflow: hidden;
 }
 .image-slider img {
-  position: absolute;
-  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  display: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .image-slider img.active {
-  opacity: 1;
+  display: block;
 }
+
+/* Contenido dentro de la tarjeta */
+.destination-content {
+  padding: 20px;
+}
+
+.destination-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #063970;
+}
+
+.destination-content p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Botón de acción */
+.destination-content button {
+  background-color: #0b63ce;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.destination-content button:hover {
+  background-color: #084ba1;
+}
+
 @media (max-width: 768px) {
   .destination-content button {
     width: 100%;
@@ -497,6 +594,11 @@ footer {
   color: #fff;
 }
 
+.hero-content .btn-primary {
+  animation: pulse 2.5s infinite;
+  transition: transform 0.2s ease-in-out;
+}
+
 .btn-primary:hover {
   background: #167b4d;
 }
@@ -538,30 +640,43 @@ footer {
 
 /* NAV moderno */
 .main-nav {
-  display: flex;
-  justify-content: space-between;
+ display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 15px 40px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  position: sticky;
+  gap: 25px;
+  padding: 15px 30px;
+  position: absolute;
   top: 0;
-  z-index: 999;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* fondo semitransparente */
+  backdrop-filter: blur(6px);     /* efecto glass */
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 10;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  padding-left: 140px;
 }
 
+
 .logo {
+position: absolute;       /* Ahora está flotando dentro del nav */
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 20px;
   font-weight: 600;
-  color: var(--primary, #007B9F);
+  color: white; /* Cambiado para mejor contraste */
+  white-space: nowrap;
+  z-index: 11;              /* Asegura que esté sobre otros elementos si hay trasparencia */
 }
 
 .logo img {
-  height: 40px;
+  height: 100px;           /* Puedes aumentar este valor si deseas */
+  width: auto;
+  object-fit: contain;
 }
-
 .nav-links {
   display: flex;
   gap: 30px;
@@ -569,26 +684,37 @@ footer {
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
   position: relative;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.nav-links a:first-child {
+  color: white !important;
 }
 
 .nav-links a::after {
   content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: var(--primary, #007B9F);
-  transition: width 0.3s;
   position: absolute;
-  bottom: -5px;
   left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--primary, #00b4d8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
-
+.nav-links a:hover {
+  color: var(--primary, #00b4d8); /* cambia color del texto */
+  text-shadow: 0 0 5px rgba(0, 180, 216, 0.5);
+}
 .nav-links a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 @media (max-width: 768px) {
@@ -609,6 +735,21 @@ footer {
   text-align: center;
   position: relative;
 }
+.hero h1,
+.hero p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero button {
+  animation: pulse 2.5s infinite;
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
 
 .hero::after {
   content: "";
@@ -617,23 +758,41 @@ footer {
   background: rgba(0, 0, 0, 0.45);
 }
 
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 80%;
-  padding: 20px;
+  text-align: center;
+  padding: 120px 20px 60px;
 }
-
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+.hero-content h1 {
+  font-size: 2.5em;
 }
-
-.hero p {
+.hero-content p {
   font-size: 1.3em;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
+
 
 .btn-primary {
   background: var(--primary, #007B9F);
@@ -656,9 +815,27 @@ footer {
   object-fit: cover;
 }
 .logo span {
-  font-size: 20px;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
-  color: var(--primary);
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  color: white;
+
+  background: linear-gradient(to right, #ffffff, #b3e5fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.slogan {
+  font-size: 11px;
+  color: #ffffff99;
+  font-style: italic;
 }
 
 nav {
@@ -703,16 +880,13 @@ nav a {
   height: 50vh; /* para escritorio */
 }
 
+
 .hero h1 {
   font-size: 1em;
   margin-bottom: 15px;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
-.hero p {
-  font-size: 1em;
-  margin-bottom: 25px;
-}
 
 }
 
@@ -755,39 +929,41 @@ nav a {
 
 </head>
 <body>
-  <header>
-    <!-- <img src="src/img/logo1.jpg" alt="Logo PTT" /> -->
-    <h1>Panamá Transports and Tours PTT</h1>
-    <p>Explora, Descubre, Disfruta</p>
+  <header id="main-header" class="hero">
+    <nav class="main-nav">
+      <div class="logo">
+        <img src="src/img/logo.png" alt="Panamá Transports and Tours" />
+
+        <div class="logo-texto">
+          <span>Panamá Transports and Tours</span>
+          <small class="slogan">Explora, vive, recuerda 🌎</small>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#destinos">Destinos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h1>Explora Panamá como nunca antes</h1>
+      <p>Desde playas paradisíacas hasta montañas mágicas, vive experiencias únicas con nuestros tours organizados a tu medida.</p>
+      <a href="#destinos" class="btn-primary">Ver tours disponibles 🚐</a>
+    </div>
   </header>
 
-<!-- Navegación profesional con logotipo y efecto visual -->
-<nav class="main-nav">
-  <div class="logo">
-    <img src="src/img/logo1.jpg" alt="Panamá Transports and Tours" />
-    <span>Panamá Transports and Tours</span>
-
-  </div>
-  <ul class="nav-links">
-    <li><a href="#destinos">Destinos</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-</nav>
-
-<!-- Hero principal visualmente impactante -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Explora Panamá como nunca antes</h1>
-    <p>Desde playas paradisíacas hasta montañas mágicas, vive experiencias únicas con nuestros tours organizados a tu medida.</p>
-    <a href="#destinos" class="btn-primary">Ver tours disponibles 🚐</a>
-  </div>
-</section>
+    <!-- Separador al final de una sección -->
+<div class="wave-separator">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z" fill="#f4f9fc"></path>
+  </svg>
+</div>
 
   <section class="section" id="destinos">
     <h2>Destinos Populares</h2>
     <div class="destinations">
-      <div class="destination">
+      <div class="destination" data-aos="fade-up">
           <div class="image-slider" data-tour="tour1">
             <img src="src/img/city/citytours-1.jpg" alt="Comida sabrosa en el mercado del marisco" class="active" />
             <img src="src/img/city/citytours-2.jpg" alt="Tour 1 Imagen 2" class="active" />
@@ -804,7 +980,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
           <button onclick="openInfo('citytours1')">Explora el tour completo 🚐</button>
         </div>
       </div>
-      <div class="destination">
+      <div class="destination" data-aos="fade-up">
           <div class="image-slider" data-tour="tour2">
             <img src="src/img/monkey/monkeyisland-1.jpg" alt="Tour 2 Imagen 1" class="active" />
             <img src="src/img/monkey/monkeyisland-2.jpg" alt="Tour 2 Imagen 2" class="active" />
@@ -818,7 +994,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
         <button onclick="openInfo('monkey')">Explora el tour completo 🚐</button>
         </div>
       </div>
-      <div class="destination">
+      <div class="destination" data-aos="fade-up">
             <div class="image-slider" data-tour="tour3">
             <img src="src/img/city/citytours-1.jpg" alt="Tour 3 Imagen 1" class="active" />
             <img src="src/img/city/citytours-2.jpg" alt="Tour 3 Imagen 2" class="active" />
@@ -833,7 +1009,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
           <button onclick="openInfo('sanblas')">Explora el tour completo 🏝️</button>
         </div>
       </div>
-      <div class="destination">
+      <div class="destination" data-aos="fade-up">
             <div class="image-slider" data-tour="tour4">
             <img src="src/img/city/citytours-1.jpg" alt="Tour 4 Imagen 1" class="active" />
             <img src="src/img/city/citytours-2.jpg" alt="Tour 4 Imagen 2" class="active" />
@@ -848,7 +1024,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
            <button onclick="openInfo('shoppingcity')">Explora el tour completo 🛍️</button>
         </div>
       </div>
-      <div class="destination">
+      <div class="destination" data-aos="fade-up">
             <div class="image-slider" data-tour="tour5">
             <img src="src/img/city/citytours-1.jpg" alt="Tour 5 Imagen 1" class="active" />
             <img src="src/img/city/citytours-2.jpg" alt="Tour 5 Imagen 2" class="active" />
@@ -863,7 +1039,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
            <button disabled style="background-color: #999;">Disponible próximamente 🌊</button>
         </div>
       </div>
-      <div class="destination">
+      <div class="destination" data-aos="fade-up">
             <div class="image-slider" data-tour="tour6">
             <img src="src/img/city/citytours-1.jpg" alt="Tour 6 Imagen 1" class="active" />
             <img src="src/img/city/citytours-2.jpg" alt="Tour 6 Imagen 2" class="active" />
@@ -923,7 +1099,7 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
 </footer>
 
 
-  <a class="whatsapp" href="https://wa.me/50762686068" target="_blank">WhatsApp</a>
+  <a class="whatsapp" href="https://wa.me/50762686068" target="_blank"></a>
   <div class="info-panel" id="info-panel">
     <span class="info-close" onclick="closeInfo()">&times;</span>
     <div id="info-content"></div>
@@ -1152,6 +1328,44 @@ const sliders = document.querySelectorAll('.image-slider');
     if (event.key === 'Escape') closeInfo();
   });
 </script>
+<script>
+  const header = document.getElementById("main-header");
 
+  const images = [
+    "src/img/beach-banner1.jpg",
+    "src/img/city-banner1.jpg",
+    "src/img/casco-banner1.jpg"
+  ];
+
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    header.style.backgroundImage = `url('${images[index]}')`;
+  }, 5000); // Cambia cada 5 segundos
+</script>
+<script>
+  const slides = document.querySelectorAll(".slider img");
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 5000);
+</script>
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>
