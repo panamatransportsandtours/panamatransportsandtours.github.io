@@ -155,21 +155,39 @@ nav a:hover::after {
 }
 
 .section {
+  background-color: #f2f8fc; /* azul pálido pastel */
   max-width: 1200px;
   margin: auto;
-  padding: 60px 20px;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05); /* sombra suave arriba */
+  padding: 40px 16px;
 }
 .section h2 {
+  position: relative;
+  font-size: 2rem;
   text-align: center;
-  font-size: 2em;
-  color: var(--primary);
-  margin-bottom: 30px;
+  color: #0a2a56; /* un azul oscuro profesional */
+  margin: 0 0 32px 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0066ff, #00c6ff);
+  margin: 12px auto 0 auto;
+  border-radius: 10px;
+}
+.section:first-of-type {
+  padding-top: 40px;
 }
 
 .destinations {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 20px;
 }
 
 .destination {
@@ -278,15 +296,27 @@ nav a:hover::after {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 24px;
-  color: #999;
+  width: 36px;
+  height: 36px;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .info-close:hover {
-  color: var(--primary);
+  background-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 
 .destinos-section {
   background: linear-gradient(180deg, #f4f9fc 0%, #e8f3ff 100%);
@@ -301,14 +331,36 @@ nav a:hover::after {
   z-index: 1;
 }
 
+
 /* Título centrado */
 #destinos h2 {
   text-align: center;
-  font-size: 2.5rem;
-  color: #0b2e59;
-  margin-bottom: 50px;
-  font-weight: 700;
+  font-size: 2.0rem;
+  color: #ffcc00; /* amarillo cálido */
+  font-weight: 900;
+  margin-bottom: 60px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+    text-shadow: 
+    1px 1px 0 rgba(0,0,0,0.8),
+    -1px -1px 0 rgba(0,0,0,0.8),
+    1px -1px 0 rgba(0,0,0,0.8),
+    -1px 1px 0 rgba(0,0,0,0.8);
 }
+
+@media screen and (max-width: 768px)  {
+  /* Título centrado */
+#destinos h2 {
+  text-align: center;
+  font-size: 1.0rem;
+  
+}
+ .floating-buttons {
+    bottom: 100px !important; /* Forzar que este valor se aplique */
+  }
+}
+
 
 
 /* Tarjeta individual */
@@ -338,6 +390,8 @@ nav a:hover::after {
     padding: 20px;
     box-sizing: border-box;
     border-radius: 0;
+    padding-bottom: 80px; /* Ajusta este valor según la altura de tu menú fijo */
+
   }
 
   .info-panel h3 {
@@ -367,6 +421,50 @@ nav a:hover::after {
     top: 10px;
     right: 15px;
   }
+
+.hero {
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* overlay oscuro */
+    z-index: 0;
+  }
+
+  .hero h1 {
+    position: relative;
+    font-size: 2.2rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    z-index: 1;
+  }
+
+  .hero p {
+    position: relative;
+    font-size: 1.2rem;
+    color: #eee;
+    margin-bottom: 2rem;
+    z-index: 1;
+  }
+
+  .hero button {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background-color: #0056b3; /* azul profesional */
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+
 }
 
 footer {
@@ -377,29 +475,59 @@ footer {
   font-size: 0.95em;
 }
 
-.whatsapp-float {
+/* Contenedor común para ambos botones */
+.floating-buttons {
   position: fixed;
-  bottom: 70px;
-  right: 15px;
-  z-index: 1100;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 1000;
+}
+
+/* Tu botón de WhatsApp ya está personalizado, este es solo un ejemplo */
+.whatsapp {
+  width: 50px;
+  height: 50px;
+  background-color: #25d366;
+ /* background-image: url('ruta/a/tu-icono-whatsapp.svg');  o usa fontawesome si prefieres */
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de correo */
+.floating-btn.email {
+  background-color: #007bff;
+}
+
+.floating-btn {
+  width: 56px;
+  height: 56px;
   background-color: #25d366;
   color: white;
   border-radius: 50%;
-  width: 56px;
-  height: 56px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 26px;
+  justify-content: center;
+  font-size: 24px; /* TAMANO UNIFORME DEL ICONO */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease;
+  line-height: 1; /* elimina el extra */
 }
 
-.whatsapp-float:hover {
+
+.floating-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 12px rgba(37, 211, 102, 0.7);
 }
+
+.floating-btn.email:hover {
+  transform: scale(1.1);
+}
+
 
 
 /* Slider imagenes tours */
@@ -727,7 +855,7 @@ position: absolute;       /* Ahora está flotando dentro del nav */
 /* HERO visual atractivo */
 .hero {
   background: url('src/img/panama-banner.jpg') no-repeat center center/cover;
-  height: 90vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -742,6 +870,7 @@ position: absolute;       /* Ahora está flotando dentro del nav */
 
 .hero button {
   animation: pulse 2.5s infinite;
+  margin-top: 0.5rem; 
 }
 
 
@@ -877,7 +1006,8 @@ nav a {
 @media (max-width: 768px) {
  
   .hero {
-  height: 50vh; /* para escritorio */
+  height: 75vh; /* para escritorio */
+
 }
 
 
@@ -919,11 +1049,21 @@ nav a {
   margin-bottom: 2px;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .bottom-nav {
     display: none; /* Solo mostrar en móviles */
   }
+  .nav-inicio {
+    display: block;
+  }
+
 }
+
+/* Ocultar por defecto */
+.nav-inicio {
+  display: none;
+}
+
 
 </style>
 
@@ -940,6 +1080,7 @@ nav a {
         </div>
       </div>
       <ul class="nav-links">
+        <li class="nav-inicio"><a href="#main-header">Inicio</a></li>
         <li><a href="#destinos">Destinos</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -948,24 +1089,18 @@ nav a {
 
     <div class="hero-content">
       <h1>Explora Panamá como nunca antes</h1>
-      <p>Desde playas paradisíacas hasta montañas mágicas, vive experiencias únicas con nuestros tours organizados a tu medida.</p>
+      <p>Playas, montañas y cultura única. ¡Elige tu aventura!</p>
       <a href="#destinos" class="btn-primary">Ver tours disponibles 🚐</a>
     </div>
   </header>
 
-    <!-- Separador al final de una sección -->
-<div class="wave-separator">
-  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z" fill="#f4f9fc"></path>
-  </svg>
-</div>
 
   <section class="section" id="destinos">
     <h2>Destinos Populares</h2>
     <div class="destinations">
       <div class="destination" data-aos="fade-up">
           <div class="image-slider" data-tour="tour1">
-            <img src="src/img/city/citytours-1.jpg" alt="Comida sabrosa en el mercado del marisco" class="active" />
+
             <img src="src/img/city/citytours-2.jpg" alt="Tour 1 Imagen 2" class="active" />
             <img src="src/img/city/citytours-3.jpg" alt="Tour 1 Imagen 3" class="active" />
             <img src="src/img/city/citytours-4.jpg" alt="Tour 1 Imagen 4" class="active" />
@@ -982,10 +1117,10 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
       </div>
       <div class="destination" data-aos="fade-up">
           <div class="image-slider" data-tour="tour2">
-            <img src="src/img/monkey/monkeyisland-1.jpg" alt="Tour 2 Imagen 1" class="active" />
-            <img src="src/img/monkey/monkeyisland-2.jpg" alt="Tour 2 Imagen 2" class="active" />
-            <img src="src/img/monkey/monkeyisland-3.jpg" alt="Tour 2 Imagen 3" class="active" />
-            <img src="src/img/monkey/monkeyisland-4.jpg" alt="Tour 2 Imagen 4" class="active" />
+            <img src="src/img/monkey/monkeyisland-2.jpg" alt="Tour 2 Imagen 1" class="active" />
+            <img src="src/img/monkey/monkeyisland-3.jpg" alt="Tour 2 Imagen 2" class="active" />
+            <img src="src/img/monkey/monkeyisland-4.jpg" alt="Tour 2 Imagen 3" class="active" />
+            <img src="src/img/monkey/monkeyisland-1.jpg" alt="Tour 2 Imagen 4" class="active" />
           </div>
         <div class="destination-content">
           <h3>🐒 Isla de los Monos</h3>
@@ -996,12 +1131,10 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
       </div>
       <div class="destination" data-aos="fade-up">
             <div class="image-slider" data-tour="tour3">
-            <img src="src/img/city/citytours-1.jpg" alt="Tour 3 Imagen 1" class="active" />
-            <img src="src/img/city/citytours-2.jpg" alt="Tour 3 Imagen 2" class="active" />
-            <img src="src/img/city/citytours-3.jpg" alt="Tour 3 Imagen 3" class="active" />
-            <img src="src/img/city/citytours-4.jpg" alt="Tour 3 Imagen 4" class="active" />
-            <img src="src/img/city/citytours-5.jpg" alt="Tour 3 Imagen 5" class="active" />
-            <img src="src/img/city/citytours-6.jpg" alt="Tour 3 Imagen 6" class="active" />
+            <img src="src/img/sanblas/sanblas4.jpg" alt="Tour 3 Imagen 1" class="active" />
+            <img src="src/img/sanblas/sanblas1.jpg" alt="Tour 3 Imagen 2" class="active" />
+            <img src="src/img/sanblas/sanblas7.jpg" alt="Tour 3 Imagen 3" class="active" />
+            <img src="src/img/sanblas/sanblas3.jpg" alt="Tour 3 Imagen 4" class="active" />
           </div>
         <div class="destination-content">
           <h3>San Blas – Tour Caribeño Express</h3>
@@ -1033,11 +1166,11 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
             <img src="src/img/city/citytours-5.jpg" alt="Tour 5 Imagen 5" class="active" />
             <img src="src/img/city/citytours-6.jpg" alt="Tour 5 Imagen 6" class="active" />
           </div>
-        <div class="destination-content">
-          <h3>Playa Venao + Isla Iguana – Surf y Naturaleza</h3>
-          <p>Próximamente podrás disfrutar de un tour combinado que une la energía del surf en Playa Venao con la tranquilidad de Isla Iguana, una reserva natural con aguas cristalinas y arrecifes de coral. Ideal para quienes buscan aventura, relajación y contacto con la biodiversidad marina.</p>
-           <button disabled style="background-color: #999;">Disponible próximamente 🌊</button>
-        </div>
+      <div class="destination-content">
+        <h3>Traslados Aeropuerto ↔ Hotel y Ejecutivos</h3>
+        <p>Comodidad, puntualidad y atención personalizada para tus desplazamientos en la Ciudad de Panamá. Ofrecemos traslados desde y hacia el aeropuerto, así como transporte interno y ejecutivo por horas.</p>
+          <button onclick="openInfo('traslados')">Ver más detalles 🚘</button>
+      </div>
       </div>
       <div class="destination" data-aos="fade-up">
             <div class="image-slider" data-tour="tour6">
@@ -1099,14 +1232,31 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
 </footer>
 
 
-  <a class="whatsapp" href="https://wa.me/50762686068" target="_blank"></a>
+<div class="floating-buttons">
+  <!-- Botón WhatsApp personalizado -->
+ <a href="https://wa.me/50762686068" class="floating-btn whatsapp" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <!-- Botón Correo -->
+  <a href="mailto:info@tusitio.com" class="floating-btn email" aria-label="Correo">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
   <div class="info-panel" id="info-panel">
-    <span class="info-close" onclick="closeInfo()">&times;</span>
+    <button class="info-close" onclick="closeInfo()" aria-label="Cerrar panel">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+    <circle cx="12" cy="12" r="12" fill="#ff5f5f"/>
+    <line x1="15" y1="9" x2="9" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <line x1="9" y1="9" x2="15" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+
     <div id="info-content"></div>
   </div>
 
 <div class="bottom-nav">
-  <a href="#inicio" class="nav-item">
+  <a href="#main-header" class="nav-item">
     <i class="fas fa-home"></i>
     <span>Inicio</span>
   </a>
@@ -1197,22 +1347,22 @@ shoppingcity: `
         Reservar este tour por WhatsApp 📲
     </a>
 `,
-venaoiguana: `
-  <h3>🌊 Playa Venao + Isla Iguana – Surf y Naturaleza</h3>
-  <p><strong>Un día entre olas, corales y paisajes protegidos</strong></p>
-  <p>Este tour te llevará a vivir dos experiencias complementarias: la adrenalina del surf en Playa Venao, reconocida internacionalmente por sus olas consistentes, y la serenidad de Isla Iguana, una reserva natural con playas vírgenes, iguanas negras, aves marinas y arrecifes ideales para snorkel.</p>
+traslados: `
+  <h3>🚐 Traslados Aeropuerto ↔ Hotel y Transporte Ejecutivo</h3>
+  <p><strong>Tu conexión cómoda y segura en Ciudad de Panamá</strong></p>
+  <p>Brindamos soluciones de transporte confiables desde el momento en que llegas al aeropuerto hasta tu hotel, eventos o recorridos urbanos. Nuestros traslados están diseñados para ofrecer puntualidad, confort y atención personalizada, ya sea para viajeros, familias o ejecutivos.</p>
   <ul>
-    <li>🏄‍♂️ Tiempo libre para surf o relax en Playa Venao</li>
-    <li>🚤 Paseo en bote desde Playa El Arenal hacia Isla Iguana</li>
-    <li>🐠 Snorkel en arrecifes de coral</li>
-    <li>📸 Avistamiento de aves y fauna marina</li>
+    <li>✈️ Traslado desde el aeropuerto hacia tu hotel con chofer asignado</li>
+    <li>🏨 Transporte desde hoteles hacia el aeropuerto según tu vuelo</li>
+    <li>🗺️ Traslados internos dentro de la Ciudad de Panamá</li>
+    <li>👔 Servicio ejecutivo por horas o días, ideal para agendas corporativas</li>
   </ul>
-  <p>🕒 Duración aproximada: 8–9 horas</p>
-  <p>👥 Ideal para: surfistas, amantes de la naturaleza, fotógrafos, parejas y grupos</p>
-  <p>📌 Este tour estará disponible próximamente. ¡Mantente atento a nuestras redes!</p>
-  <a href="https://wa.me/50762686068?text=Hola%2C%20quiero%20reservar%20el%20tour%20al%20Valle%20de%20Ant%C3%B3n%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐🌄"
+  <p>🕒 Disponibilidad: 24/7 con reserva anticipada</p>
+  <p>👥 Ideal para: turistas, viajeros frecuentes, ejecutivos y familias</p>
+  <p>📌 Este servicio ya está disponible. ¡Reserva con anticipación!</p>
+  <a href="https://wa.me/50762686068?text=Hola%2C%20quiero%20reservar%20un%20traslado%20con%20Panam%C3%A1%20Transports%20and%20Tours%20🚐"
         class="whatsapp-reserva" target="_blank">
-        Reservar este tour por WhatsApp 📲
+        Reservar traslado por WhatsApp 📲
   </a>
 `,
 antontour: `
@@ -1332,12 +1482,21 @@ const sliders = document.querySelectorAll('.image-slider');
   const header = document.getElementById("main-header");
 
   const images = [
-    "src/img/beach-banner1.jpg",
-    "src/img/city-banner1.jpg",
-    "src/img/casco-banner1.jpg"
+    "src/img/beach-banner1.webp",
+    "src/img/city-banner1.webp",
+    "src/img/sanblas/sanblas2.jpg"
   ];
 
+// Precarga de imágenes
+  const preloadedImages = [];
+  images.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+    preloadedImages.push(img);
+  });
+
   let index = 0;
+  header.style.backgroundImage = `url('${images[index]}')`;
 
   setInterval(() => {
     index = (index + 1) % images.length;
