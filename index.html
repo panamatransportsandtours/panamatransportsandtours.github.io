@@ -859,7 +859,7 @@ position: absolute;       /* Ahora está flotando dentro del nav */
 
 /* HERO visual atractivo */
 .hero {
-  background: url('src/img/panama-banner.jpg') no-repeat center center/cover;
+  background: url('src/img/beach-banner1.webp') no-repeat center center/cover;
   height: 75vh;
   display: flex;
   align-items: center;
@@ -1069,12 +1069,111 @@ nav a {
   display: none;
 }
 
+.language-switcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.language-switcher img {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border-radius: 2px;
+}
+
+.language-switcher img:hover {
+  transform: scale(1.1);
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* importante para alinear verticalmente */
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+.loader-content {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.loader-logo {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  margin-bottom: 50px;
+  animation: logoPulse 1.8s infinite ease-in-out;
+}
+
+/* Barra de carga animada */
+.loader-bar {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.loader-bar::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  animation: loadingBar 1.5s infinite;
+  border-radius: 10px;
+}
+
+#preloader, .loader-content {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes logoPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes loadingBar {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 </style>
 
 </head>
 <body>
+
+<div id="preloader">
+  <div class="loader-content">
+    <img src="src/img/logo.png" alt="Logo" class="loader-logo" />
+    <div class="loader-bar"></div>
+  </div>
+</div>
+  
   <header id="main-header" class="hero">
+
     <nav class="main-nav">
       <div class="logo">
         <img src="src/img/logo.png" alt="Panamá Transports and Tours" />
@@ -1090,6 +1189,11 @@ nav a {
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
+      <!-- Cambiador de idioma con banderas -->
+     <div class="language-switcher">
+        <img src="src/img/es.png" alt="Español" onclick="setLanguage('es')" />
+        <img src="src/img/en.png" alt="English" onclick="setLanguage('en')" />
+     </div>
     </nav>
 
     <div class="hero-content">
@@ -1518,10 +1622,22 @@ const sliders = document.querySelectorAll('.image-slider');
       nav.classList.remove('scrolled');
     }
   });
+
+
+  window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    preloader.style.pointerEvents = "none";
+    setTimeout(() => preloader.remove(), 600);
+  }, 1000); // Espera 400ms por UX, pero puede ajustarse
+});
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
+
+
 </body>
 </html>
