@@ -307,7 +307,7 @@ const header = document.getElementById("main-header");
 const images = [
   "src/img/beach-banner1.webp",
   "src/img/city-banner1.webp",
-  "src/img/sanblas/sanblas2.jpg"
+  "src/img/sanblas/sanblas2.webp"
 ];
 const preloadedImages = images.map(src => {
   const img = new Image();
