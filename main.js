@@ -370,7 +370,7 @@ const translations = {
         "herocontentbutton": "Ver tours disponibles",
         "destinosh2": "Destinos Populares",
         "citytourh3": "City Tour Panamá: Historia, Arquitectura y Sabor Local",
-        "citytourp": "¿Listo para descubrir lo mejor de la Ciudad de Panamá? ¿Listo para descubrir lo mejor de la Ciudad de Panamá? Este tour guiado te lleva por los lugares más emblemáticos y encantadores de la capital. Desde las maravillas de la ingeniería moderna hasta los sabores auténticos del mercado popular, cada parada cuenta una historia panameña que no te querrás perder.",
+        "citytourp": "¿Listo para descubrir lo mejor de la Ciudad de Panamá? Este tour guiado te lleva por los lugares más emblemáticos y encantadores de la capital. Desde las maravillas de la ingeniería moderna hasta los sabores auténticos del mercado popular, cada parada cuenta una historia panameña que no te querrás perder.",
         "citytourbutton": "Explora el tour completo",
         "mokeyislandh3": "Isla de los Monos",
         "mokeyislandp": "A solo minutos de la Ciudad de Panamá, esta experiencia te lleva al corazón del Parque Nacional Soberanía, navegando por el majestuoso Lago Gatún, donde conviven la ingeniería del Canal y la biodiversidad más vibrante del país. La Isla de los Monos es hogar de especies como los monos capuchinos, aulladores y tamarinos, que se acercan curiosos a los botes en busca de frutas y atención.",
