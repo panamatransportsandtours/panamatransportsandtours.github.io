@@ -1687,19 +1687,38 @@ const infoEn = {
   `
 };
 
-    function openInfo(key) {
-      const lang = localStorage.getItem("language") || "es";
-      document.getElementById('info-content').innerHTML = (lang === "en" ? infoEn : info)[key];
-      document.getElementById('info-panel').style.display = 'block';
-    }
-    function closeInfo() {
-      document.getElementById('info-panel').style.display = 'none';
-    }
-    window.addEventListener('click', function(event) {
-      const panel = document.getElementById('info-panel');
-      if (event.target === panel) closeInfo();
-    });
+/*INFO PANEL - ACCIONES*/
+function openInfo(key) {
+  const lang = localStorage.getItem("language") || "es";
+  document.getElementById('info-content').innerHTML = (lang === "en" ? infoEn : info)[key];
+  document.getElementById('info-panel').style.display = 'block';
 
+  // Agrega una entrada al historial cuando se abre el panel
+  history.pushState({ panelOpen: true }, 'info-panel');
+}
+
+function closeInfo() {
+  document.getElementById('info-panel').style.display = 'none';
+
+  // Vuelve al estado anterior del historial (simula cerrar el panel)
+  if (history.state && history.state.panelOpen) {
+    history.back();
+  }
+}
+
+// Cierra el panel si el usuario hace clic fuera de él
+window.addEventListener('click', function(event) {
+  const panel = document.getElementById('info-panel');
+  if (event.target === panel) closeInfo();
+});
+
+// Cierra el panel si se presiona el botón "atrás"
+window.addEventListener('popstate', function(event) {
+  const panel = document.getElementById('info-panel');
+  if (panel && panel.style.display === 'block') {
+    panel.style.display = 'none';
+  }
+});
     /*AQUI ESTA EL SCRIPT PARA EL SLIDER*/
 const sliders = document.querySelectorAll('.image-slider');
 
@@ -1798,13 +1817,18 @@ const sliders = document.querySelectorAll('.image-slider');
   }, 5000); // Cambia cada 5 segundos
 </script>
 <script>
-  const slides = document.querySelectorAll(".slider img");
-  let current = 0;
-  setInterval(() => {
-    slides[current].classList.remove("active");
-    current = (current + 1) % slides.length;
-    slides[current].classList.add("active");
-  }, 5000);
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".slider img");
+
+    if (slides.length > 0) {
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }, 5000);
+    }
+  });
 </script>
 <script>
   window.addEventListener('scroll', () => {
