@@ -228,10 +228,87 @@ const infoEn = {
 /* INFO PANEL - ACCIONES */
 function openInfo(key) {
   const lang = localStorage.getItem("language") || "es";
-  document.getElementById('info-content').innerHTML = (lang === "en" ? infoEn : info)[key];
+  const content = (lang === "en" ? infoEn : info)[key];
+
+  // Insertamos el texto del tour
+  document.getElementById('info-content').innerHTML = content;
+
+  // Definimos las imágenes para cada tour
+  const sliderImages = {
+    citytours1: [
+      "src/img/city/citytours-2.jpg",
+      "src/img/city/citytours-12.webp",
+      "src/img/city/citytours-13.webp",
+      "src/img/city/citytours-3.jpg",
+      "src/img/city/citytours-4.jpg"
+    ],
+    monkey: [
+      "src/img/monkey/monkeyisland-3.webp",
+      "src/img/monkey/monkeyisland-2.webp",
+      "src/img/monkey/monkeyisland-1.jpg"
+    ],
+    sanblas: [
+      "src/img/sanblas/sanblas4.jpg",
+      "src/img/sanblas/sanblas1.jpg",
+      "src/img/sanblas/sanblas7.jpg",
+      "src/img/sanblas/sanblas3.jpg",
+      "src/img/sanblas/sanblas8.jpg",
+    ],
+    antontour: [
+      "src/img/valle/valle-anton2.jpg",
+      "src/img/valle/valle-anton3.jpg",
+      "src/img/valle/valle-anton4.jpg",
+      "src/img/valle/valle-anton6.webp",
+    ],
+    shoppingcity: [
+      "src/img/shopping/shoppingcity1.jpg",
+      "src/img/shopping/shoppingcity2.jpg",
+      "src/img/shopping/shoppingcity3.jpg",
+    ],
+    traslados: [
+      "src/img/transporte/transporte4 - copia.jpg",
+      "src/img/transporte/transporte2.jpg",
+      "src/img/transporte/transporte7.webp",
+      "src/img/transporte/transporte6.webp",
+      "src/img/transporte/transporte7.webp",
+    ]
+
+    // Puedes agregar más tours aquí con su clave y rutas
+  };
+
+  // Mostrar galería flotante en desktop
+  const galleryContainer = document.getElementById('floating-gallery');
+  if (window.innerWidth > 768 && sliderImages[key]) {
+    const images = sliderImages[key];
+galleryContainer.innerHTML = `
+  <div class="expanded-overlay">
+    <div class="expanded-slider">
+      ${images.map((src, i) => `<img src="${src}" class="${i === 0 ? 'active' : ''}" />`).join('')}
+      <div class="slider-controls">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+  </div>
+`;
+    initExpandedSliders(); // activa el slider
+  } else {
+    galleryContainer.innerHTML = ''; // vacío en móvil o si no hay imágenes
+  }
+
+  document.addEventListener('click', function (event) {
+  const overlay = document.querySelector('.expanded-overlay');
+  if (overlay && !event.target.closest('.expanded-slider')) {
+    overlay.remove();
+  }
+});
+
+  // Mostrar panel de info
   document.getElementById('info-panel').style.display = 'block';
   history.pushState({ panelOpen: true }, 'info-panel');
 }
+
+window.openInfo = openInfo;
 
 function closeInfo() {
   document.getElementById('info-panel').style.display = 'none';
@@ -268,28 +345,44 @@ const sliders = document.querySelectorAll('.image-slider');
 
 sliders.forEach(slider => {
   const images = slider.querySelectorAll('img');
+    const dotsContainer = slider.querySelector('.slider-dots');
   let index = 0;
   let interval;
+
+    // Crear puntos
+  images.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      index = i;
+      showImage(index);
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.dot');
 
   function showImage(i) {
     images.forEach((img, idx) => {
       img.classList.toggle('active', idx === i);
     });
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === i);
+    });
   }
 
-  function startSlider() {
+ function startSlider() {
     if (images.length <= 1 || interval) return;
     interval = setInterval(() => {
       index = (index + 1) % images.length;
       showImage(index);
-    }, 2000);
+    }, 3000);
   }
 
   function stopSlider() {
     clearInterval(interval);
     interval = null;
-    index = 0;
-    showImage(index);
   }
 
   slider.addEventListener('mouseenter', startSlider);
@@ -464,3 +557,28 @@ document.getElementById("lang-en").addEventListener("click", () => setLanguage("
 document.getElementById("lang-es").addEventListener("click", () => setLanguage("es"));
 document.getElementById("lang-en-mobile").addEventListener("click", () => setLanguage("en"));
 document.getElementById("lang-es-mobile").addEventListener("click", () => setLanguage("es"));
+
+function initExpandedSliders() {
+  document.querySelectorAll('.expanded-slider').forEach(slider => {
+    const imgs = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
+    let current = 0;
+
+    function show(i) {
+      imgs.forEach((img, idx) => img.classList.toggle('active', idx === i));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + imgs.length) % imgs.length;
+      show(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % imgs.length;
+      show(current);
+    });
+
+    show(current);
+  });
+}

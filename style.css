@@ -555,6 +555,30 @@ footer {
   display: block;
 }
 
+/* Indicadores (dots) para el slider */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.slider-dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.7); /* Color suave sobre la imagen */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.slider-dots .dot.active {
+  background-color: #007bff; /* Color activo (puedes cambiarlo a tu color primario) */
+}
+
 /* Contenido dentro de la tarjeta */
 .destination-content {
   padding: 20px;
@@ -1223,4 +1247,135 @@ nav a {
     height: auto;
     cursor: pointer;
   }
+}
+
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+.expanded-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255 255 255 / 0.8); /* Fondo blanco con transparencia */
+  backdrop-filter: blur(8px); /* Desenfoque del fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto; /* importante para que reciba clicks */
+  z-index: 10001; /* más arriba que #floating-gallery */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+
+.expanded-slider {
+  max-width: 600px; /* o el ancho que quieras */
+  width: 90vw; /* ancho responsivo */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.expanded-slider img {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.expanded-slider img.active {
+  display: block;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.slider-controls button {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.floating-gallery {
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  width: 50%;
+  max-width: 600px;
+  z-index: 999;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  padding: 10px;
+  animation: fadeIn 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .floating-gallery {
+    display: none;
+  }
+}
+
+.expanded-slider {
+  background: white;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.expanded-slider img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: none;
+}
+
+.expanded-slider img.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#floating-gallery.desktop-only {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  pointer-events: none; /* <- Esto hace que no intercepte clicks */
 }
