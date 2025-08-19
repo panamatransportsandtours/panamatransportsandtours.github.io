@@ -303,22 +303,25 @@ sliders.forEach(slider => {
 });
 
 /* SLIDER DEL HEADER */
-const header = document.getElementById("main-header");
-const images = [
+const sliderImages = [
   "src/img/beach-banner1.webp",
   "src/img/city-banner1.webp",
   "src/img/sanblas/sanblas2.webp"
 ];
-const preloadedImages = images.map(src => {
+
+// Preload (opcional, mejora fluidez)
+const preloadedImages = sliderImages.map(src => {
   const img = new Image();
   img.src = src;
   return img;
 });
+
+const headerImage = document.getElementById("header-slider-img");
 let index = 0;
-header.style.backgroundImage = `url('${images[index]}')`;
+
 setInterval(() => {
-  index = (index + 1) % images.length;
-  header.style.backgroundImage = `url('${images[index]}')`;
+  index = (index + 1) % sliderImages.length;
+  headerImage.src = sliderImages[index];
 }, 5000);
 
 /* SLIDER DE OTRA SECCIÓN */
