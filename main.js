@@ -441,6 +441,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* PRELOADER */
+/*
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   setTimeout(() => {
@@ -448,6 +449,15 @@ window.addEventListener("load", () => {
     preloader.style.pointerEvents = "none";
     setTimeout(() => preloader.remove(), 600);
   }, 1000);
+});
+*/
+document.addEventListener("DOMContentLoaded", () => {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    preloader.style.pointerEvents = "none";
+    setTimeout(() => preloader.remove(), 600);
+  }, 2000); // 2 segundo de intro máximo
 });
 
 /* AOS (Animaciones) */
