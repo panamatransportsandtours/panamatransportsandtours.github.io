@@ -270,7 +270,6 @@ function openInfo(key) {
       "src/img/transporte/transporte2.jpg",
       "src/img/transporte/transporte7.webp",
       "src/img/transporte/transporte6.webp",
-      "src/img/transporte/transporte7.webp",
     ]
 
     // Puedes agregar más tours aquí con su clave y rutas
@@ -591,4 +590,64 @@ function initExpandedSliders() {
 
     show(current);
   });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Slider flechas
+  document.querySelectorAll('.image-slider').forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    let currentIndex = 0;
+
+    const showSlide = (index) => {
+      images.forEach(img => img.classList.remove('active'));
+      currentIndex = (index + images.length) % images.length;
+      images[currentIndex].classList.add('active');
+    };
+
+    const prevSlide = () => showSlide(currentIndex - 1);
+    const nextSlide = () => showSlide(currentIndex + 1);
+
+    const leftArrow = slider.querySelector('.slider-arrow.left');
+    const rightArrow = slider.querySelector('.slider-arrow.right');
+
+    if (leftArrow) {
+      leftArrow.addEventListener('click', () => {
+        console.log('⬅️ Flecha izquierda presionada');
+        prevSlide();
+      });
+    }
+
+    if (rightArrow) {
+      rightArrow.addEventListener('click', () => {
+        console.log('➡️ Flecha derecha presionada');
+        nextSlide();
+      });
+    }
+  });
+});
+
 }
+initExpandedSliders();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const floatingButtons = document.querySelectorAll('.floating-btn');
+  const footer = document.querySelector('.site-footer');
+
+  function checkFooterVisibility() {
+    const footerRect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    const isFooterVisible = footerRect.top < windowHeight;
+
+    floatingButtons.forEach(btn => {
+      if (isFooterVisible) {
+        btn.classList.add('hide');
+      } else {
+        btn.classList.remove('hide');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkFooterVisibility);
+  window.addEventListener('resize', checkFooterVisibility);
+  checkFooterVisibility(); // Verificar al cargar
+});
