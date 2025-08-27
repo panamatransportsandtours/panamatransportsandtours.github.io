@@ -836,7 +836,12 @@ footer {
   color: white;
   text-align: center;
   padding: 30px 20px;
-  padding-bottom: 100px;
+}
+/* Solo aplica en pantallas móviles */
+@media (max-width: 768px) {
+  .site-footer {
+    padding-bottom: 100px;
+  }
 }
 
 .footer-container {
@@ -1430,4 +1435,109 @@ nav a {
   height: 100vh;
   z-index: 10000;
   pointer-events: none; /* <- Esto hace que no intercepte clicks */
+}
+
+/* === SERVICIOS SECTION === */
+.servicios-section {
+  background-color: #f8f8f8;
+  padding: 40px 20px;
+}
+
+.servicios-section h2 {
+  text-align: center;
+  color: #1ea362;
+  margin-bottom: 30px;
+}
+
+.servicios-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.servicios-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.servicios-list li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  color: #1ea362;
+}
+
+/* === POR QUE ELEGIRNOS SECTION === */
+.porque-section {
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.porque-section h2 {
+  text-align: center;
+  color: #1ea362;
+  margin-bottom: 30px;
+}
+
+.porque-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.porque-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.porque-list li::before {
+  content: "🌟";
+  position: absolute;
+  left: 0;
+  color: #f4c150;
+}
+
+/* === TESTIMONIOS SECTION === */
+.testimonios-section {
+  background-color: #f7f7f7;
+  padding: 40px 20px;
+}
+
+.testimonios-section h2 {
+  text-align: center;
+  color: #1ea362;
+  margin-bottom: 30px;
+}
+
+.testimonial-block {
+  background-color: #fff;
+  border-left: 4px solid #1ea362;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-block blockquote {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.testimonial-block .stars {
+  color: #f4c150;
+  font-size: 18px;
+  text-align: right;
 }

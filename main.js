@@ -505,7 +505,20 @@ const translations = {
         "bottonnav-inicio": "Inicio",
         "bottonnav-destino": "Destinos",
         "bottonnav-nosotros": "Nosotros",
-        "bottonnav-contacto": "Contacto"
+        "bottonnav-contacto": "Contacto",
+        "serviciosH2": "Nuestros Servicios",
+        "servicio1": "Traslados privados y seguros desde y hacia aeropuertos, hoteles y destinos turísticos, con vehículos modernos y conductores profesionales que garantizan comodidad y puntualidad.",
+        "servicio2": "Tours personalizados a los principales atractivos de Panamá, incluyendo el Canal de Panamá, Casco Viejo y el Parque Natural Metropolitano, con guías expertos que hacen tu experiencia inolvidable.",
+        "servicio3": "Servicio de atención al cliente 24/7 para resolver cualquier duda y ayudarte a planificar tu viaje sin complicaciones.",
+        "porqueElegirnosH2": "¿Por qué elegir Panamá Transports and Tours?",
+        "porqueElegirnosP1": "Somos una empresa local con años de experiencia en turismo y transporte, comprometidos con la seguridad y satisfacción de nuestros clientes.",
+        "porqueElegirnosP2": "Nuestros vehículos están equipados con todas las comodidades para que tu viaje sea cómodo y seguro.",
+        "porqueElegirnosP3": "Ofrecemos atención personalizada y tours a la medida, porque sabemos que cada viajero es único.",
+        "testimoniosH2": "Lo que dicen nuestros clientes",
+        "testimonio1": "El tour al Canal de Panamá fue espectacular. El guía fue muy amable y aprendí mucho. Sin duda repetiré con Panamá Transports and Tours.",
+        "testimonio2": "Excelente servicio de traslado, puntual y cómodo. Me sentí muy seguro y bien atendido en todo momento.",
+        "testimonio3": "Los tours personalizados hicieron que mi visita a Panamá fuera inolvidable. ¡Muy recomendados!"
+
   },
   en: {
         "heromensaje": "Explore, live, remember",
@@ -548,7 +561,20 @@ const translations = {
         "bottonnav-inicio": "Home",
         "bottonnav-destino": "Destinations",
         "bottonnav-nosotros": "About Us",
-        "bottonnav-contacto": "Contact"
+        "bottonnav-contacto": "Contact",
+        "serviciosH2": "Our Services",
+        "servicio1": "Private and safe transfers to and from airports, hotels, and tourist destinations, with modern vehicles and professional drivers ensuring comfort and punctuality.",
+        "servicio2": "Custom tours to Panama's main attractions, including the Panama Canal, Casco Viejo, and the Metropolitan Natural Park, with expert guides who make your experience unforgettable.",
+        "servicio3": "24/7 customer service to help you plan your trip without complications.",
+        "porqueElegirnosH2": "Why Choose Panama Transports and Tours?",
+        "porqueElegirnosP1": "We are a local company with years of experience in tourism and transport, committed to customer safety and satisfaction.",
+        "porqueElegirnosP2": "Our vehicles are equipped with all the amenities to make your trip comfortable and safe.",
+        "porqueElegirnosP3": "We offer personalized attention and tailor-made tours because we know every traveler is unique.",
+        "testimoniosH2": "What Our Clients Say",
+        "testimonio1": "The Panama Canal tour was spectacular. The guide was very friendly and I learned a lot. I will definitely book again with Panama Transports and Tours.",
+        "testimonio2": "Excellent transfer service, punctual and comfortable. I felt very safe and well cared for at all times.",
+        "testimonio3": "The personalized tours made my visit to Panama unforgettable. Highly recommended!"
+
   }
 };
 
