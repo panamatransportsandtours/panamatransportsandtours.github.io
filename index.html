@@ -331,11 +331,21 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
   <div class="contact-container">
     <h2 data-translate="contactanosh2">📬 Contáctanos</h2>
     <p data-translate="contactanosp">¿Tienes preguntas o deseas reservar un tour? ¡Estamos listos para ayudarte!</p>
-    <div class="contact-details">
-      <p>📞 <a href="tel:+50769975382">+507 69975382</a></p>
-      <p>✉️ <a href="mailto:info@pttpanama.com" class="email-link">info@pttpanama.com</a></p>
-      <a class="btn-secondary" href="https://wa.me/50769975382" target="_blank" data-translate="contactanosbutton">Escríbenos por WhatsApp</a>
-    </div>
+<div class="contact-details">
+  <p>📞 <a href="tel:+50769975382">+507 69975382</a></p>
+  <p>✉️ <a href="mailto:info@pttpanama.com" class="email-link">info@pttpanama.com</a></p>
+
+  <a class="btn-secondary" 
+     href="https://wa.me/50769975382" 
+     target="_blank" 
+     data-translate="contactanosbutton"
+     onclick="gtag('event', 'whatsapp_click', {
+       event_category: 'engagement',
+       event_label: 'WhatsApp Contact Details'
+     });">
+     Escríbenos por WhatsApp
+  </a>
+</div>
   </div>
 </section>
 
@@ -354,11 +364,25 @@ Este tour guiado te lleva por los lugares más emblemáticos y encantadores de l
 
 <div class="floating-buttons">
   <!-- Botón WhatsApp personalizado -->
- <a href="https://wa.me/50769975382" class="floating-btn whatsapp" target="_blank" aria-label="WhatsApp">
+  <a href="https://wa.me/50769975382" 
+     class="floating-btn whatsapp" 
+     target="_blank" 
+     aria-label="WhatsApp"
+     onclick="gtag('event', 'whatsapp_click', {
+       event_category: 'engagement',
+       event_label: 'WhatsApp Floating'
+     });">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
+
   <!-- Botón Correo -->
-  <a href="mailto:info@pttpanama.com" class="floating-btn email" aria-label="Correo">
+  <a href="mailto:info@pttpanama.com" 
+     class="floating-btn email" 
+     aria-label="Correo"
+     onclick="gtag('event', 'email_click', {
+       event_category: 'engagement',
+       event_label: 'Email Floating'
+     });">
     <i class="fas fa-envelope"></i>
   </a>
 </div>
