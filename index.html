@@ -23,7 +23,22 @@
 
   gtag('config', 'AW-17988298194');
 </script>
-
+<!-- Event snippet for Vista de página conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17847026726/d0GfCMzk6tobEKaIkL5C',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
 <!-- Google tag. (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5JZ2Z35D4"></script>
