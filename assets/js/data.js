@@ -173,7 +173,7 @@ export const EXPERIENCES = [
   {
     id: 'colon-cruise',
     category: 'cruise',
-    image: 'assets/img/colon-cruise.jpg',
+    image: 'assets/img/colon-cruise.jpg?v=2',
     durationHours: 6,
     durationLabel: { es: '4–8 horas · Horario Crucero', en: '4–8 hours · Cruise Schedule' },
     rating: 4.98,
@@ -565,7 +565,7 @@ export const EXPERIENCES = [
   {
     id: 'vip-transfers',
     category: 'transfers',
-    image: 'assets/img/amador-ptt-civic.jpg',
+    image: 'assets/img/odyssey-amador-ptt.jpg',
     durationHours: 1,
     durationLabel: { es: '24/7 · Bajo Reserva', en: '24/7 · On Demand' },
     rating: 4.97,
@@ -592,14 +592,14 @@ export const EXPERIENCES = [
       es: [
         'Recepción en puerta de llegada (PTY o Puerto de Colón) con letrero PTT',
         'Monitoreo de vuelo en tiempo real — esperamos si tu vuelo se demora',
-        'Flota ejecutiva: Sedán PTT, SUV VIP, Van Turística (12 pax) y Mini-Bus',
+        'Flota ejecutiva: Minivan VIP Honda Odyssey, SUV 4×4, Van Turística (12 pax) y Mini-Bus',
         'Servicio ejecutivo por horas o días completos para agendas corporativas',
         'Cotización personalizada directa por WhatsApp según ruta y grupo',
       ],
       en: [
         'Meet-and-greet arrival service at Tocumen (PTY) or Colón Port with PTT sign',
         'Real-time flight monitoring — complimentary wait on flight delays',
-        'Executive fleet: PTT Sedan, VIP SUV, Touring Van (12 pax) & Mini-Bus',
+        'Executive fleet: VIP Honda Odyssey Minivan, 4×4 SUV, Touring Van (12 pax) & Mini-Bus',
         'Hourly or full-day executive chauffeur for business agendas',
         'Direct personalized WhatsApp quote tailored to your route & group',
       ],
@@ -679,14 +679,14 @@ export const TRANSFER_ROUTES = [
 
 export const FLEET = [
   {
-    id: 'sedan',
-    paxMax: 3,
-    bagsMax: 3,
-    name: { es: 'Sedán Ejecutivo PTT', en: 'PTT Executive Sedan' },
-    models: 'Honda Civic / Toyota Corolla / Similar',
+    id: 'odyssey',
+    paxMax: 7,
+    bagsMax: 6,
+    name: { es: 'Minivan Ejecutiva VIP PTT', en: 'PTT VIP Executive Minivan' },
+    models: 'Honda Odyssey VIP (Cuero · Puerta Eléctrica)',
     features: {
-      es: ['1–3 pasajeros · 3 maletas', 'A/C dual & cargadores USB', 'Ideal ejecutivos, parejas y escalas'],
-      en: ['1–3 passengers · 3 bags', 'Dual A/C & USB chargers', 'Ideal for executives, couples & layovers'],
+      es: ['1–7 pasajeros · 6 maletas', 'Asientos en cuero + A/C 3 zonas + vidrios privacidad', 'Ideal familias, cruceros, Tocumen y ejecutivos'],
+      en: ['1–7 passengers · 6 bags', 'Leather interior + 3-zone A/C + privacy tint', 'Ideal for families, cruises, Tocumen & executives'],
     },
   },
   {
@@ -694,10 +694,10 @@ export const FLEET = [
     paxMax: 5,
     bagsMax: 5,
     name: { es: 'SUV VIP 4×4', en: 'VIP 4×4 SUV' },
-    models: 'Toyota Fortuner / Prado / Suburban',
+    models: 'Toyota Fortuner / Prado / 4×4',
     features: {
-      es: ['1–5 pasajeros · 5 maletas', 'Interior confortable + amplio maletero', 'Apto San Blas & Valle de Antón'],
-      en: ['1–5 passengers · 5 bags', 'Spacious interior + generous trunk', 'San Blas & Highlands ready'],
+      es: ['1–5 pasajeros · 5 maletas', 'Tracción 4×4 + interior confortable', 'Ideal San Blas (Guna Yala) & Valle de Antón'],
+      en: ['1–5 passengers · 5 bags', '4×4 capability + comfortable cabin', 'Ideal for San Blas (Guna Yala) & El Valle'],
     },
   },
   {
@@ -707,8 +707,8 @@ export const FLEET = [
     name: { es: 'Van Turística Ejecutiva', en: 'Executive Touring Van' },
     models: 'Toyota Hiace / Hyundai H1 / Sprinter',
     features: {
-      es: ['6–12 pasajeros · 12 maletas', 'Techo alto panorámico + A/C', 'Ideal familias, cruceros y grupos'],
-      en: ['6–12 passengers · 12 bags', 'High roof panoramic + A/C', 'Ideal for families, cruises & groups'],
+      es: ['6–12 pasajeros · 12 maletas', 'Techo alto panorámico + A/C', 'Ideal grupos privados y excursiones de crucero'],
+      en: ['6–12 passengers · 12 bags', 'High roof panoramic + A/C', 'Ideal for private groups & cruise shore excursions'],
     },
   },
   {
@@ -762,16 +762,16 @@ export const REAL_GALLERY = [
     caption: { es: 'Monumental Plaza de Francia, arcos coloniales y obelisco histórico en nuestro City Tour', en: 'Historic Plaza de Francia white colonial arches & obelisk on our City Tour' },
   },
   {
-    src: 'assets/img/real/real-casco-civic.jpg',
+    src: 'assets/img/real/real-casco-odyssey.jpg',
     group: 'casco',
     tag: { es: 'Casco Viejo · Unidad PTT', en: 'Casco Viejo · PTT Fleet' },
-    caption: { es: 'Nuestro vehículo ejecutivo PTT frente a la Catedral Metropolitana en las calles adoquinadas del Casco Viejo', en: 'Our private PTT executive vehicle parked in front of the Cathedral along Casco Viejo’s brick streets' },
+    caption: { es: 'Nuestra Honda Odyssey ejecutiva PTT frente a la Catedral Metropolitana en el Casco Viejo', en: 'Our private PTT executive Honda Odyssey in front of the Cathedral in Casco Viejo' },
   },
   {
-    src: 'assets/img/real/real-colon-civic.jpg',
+    src: 'assets/img/real/real-colon-odyssey.jpg',
     group: 'cruise',
     tag: { es: 'Cruceros Colón · Caribe', en: 'Colón Cruise Port' },
-    caption: { es: 'Unidad ejecutiva PTT recibiendo viajeros frente al crucero en el Puerto de Colón', en: 'PTT executive vehicle greeting guests at Colón Cruise Port' },
+    caption: { es: 'Honda Odyssey VIP de PTT recibiendo pasajeros frente al crucero en el Puerto de Colón', en: 'PTT VIP Honda Odyssey greeting cruise passengers at Colón Cruise Port' },
   },
   {
     src: 'assets/img/real/real-crucero-amador.jpg',
@@ -780,10 +780,10 @@ export const REAL_GALLERY = [
     caption: { es: 'Terminal de Cruceros de Panamá en Amador (Isla Perico) con cruceros del Pacífico', en: 'Panama Cruise Terminal in Amador (Isla Perico) welcoming Pacific cruise ships' },
   },
   {
-    src: 'assets/img/real/real-amador-civic.jpg',
+    src: 'assets/img/real/real-amador-odyssey.jpg',
     group: 'cruise',
-    tag: { es: 'Flota Real PTT', en: 'Real PTT Fleet' },
-    caption: { es: 'Servicio privado identificado con tarjeta oficial PTT en la Calzada de Amador', en: 'Private PTT vehicle with official sign along Amador Causeway' },
+    tag: { es: 'Flota VIP · Honda Odyssey', en: 'VIP Fleet · Honda Odyssey' },
+    caption: { es: 'Nuestra Honda Odyssey VIP identificada con letrero oficial PTT en la Calzada de Amador', en: 'Our VIP Honda Odyssey with official PTT welcome sign along Amador Causeway' },
   },
   {
     src: 'assets/img/real/real-miraflores.jpg',

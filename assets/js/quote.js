@@ -84,7 +84,7 @@ export function createInitialQuoteState() {
     routeId: 'pty-city',
     tripType: 'one-way', // 'one-way' | 'round-trip'
     hours: 4,
-    vehicleId: 'sedan',
+    vehicleId: 'odyssey',
     pickupTime: '10:00',
     // Flight / Cruise tracking (shared across both Tours & Transfers)
     flightNumber: '',
