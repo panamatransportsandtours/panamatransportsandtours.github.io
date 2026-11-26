@@ -12,7 +12,7 @@ import {
   PAYMENT_METHODS,
   QUOTE_ADDONS,
   TRANSFER_ROUTES,
-} from './data.js';
+} from './data.js?v=20261126';
 
 const AIRLINE_CODES = {
   CM: 'Copa Airlines',

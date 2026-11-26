@@ -11,7 +11,7 @@
 // ============================================================================
 
 import * as THREE from '../vendor/three.module.min.js';
-import { EXPERIENCES } from './data.js';
+import { EXPERIENCES } from './data.js?v=20261126';
 
 const ATMOSPHERES = {
   day: {

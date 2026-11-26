@@ -18,14 +18,14 @@ import {
   REAL_GALLERY,
   TESTIMONIALS,
   TRANSFER_ROUTES,
-} from './data.js';
-import { Panama3DScene } from './scene3d.js';
+} from './data.js?v=20261126';
+import { Panama3DScene } from './scene3d.js?v=20261126';
 import {
   buildQuoteText,
   createInitialQuoteState,
   renderQuoteReceiptHTML,
   summarizeQuote,
-} from './quote.js';
+} from './quote.js?v=20261126';
 
 const appState = {
   lang: localStorage.getItem('ptt_lang') === 'en' ? 'en' : 'es',
