@@ -1,490 +1,511 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow">
-  <link rel="icon" href="src/img/logo1.jpg" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Panamá Transports and Tours</title>
-  <meta name="description" content="Descubre Panamá con tours únicos: City Tour, San Blas, Isla de los Monos, traslados aeropuerto-hotel y más. Reserva tu aventura hoy.">
+  <title>PTT Panamá | Tours 3D, Canal de Panamá, Cruceros Colón, San Blas y Traslados VIP</title>
+  <meta
+    name="description"
+    content="Panamá Transports and Tours (PTT): Explora Panamá en mapa 3D interactivo y cotiza directo por WhatsApp City Tour, Puerto de Cruceros de Colón, San Blas, Isla de los Monos, Valle de Antón y traslados privados 24/7."
+  />
+  <meta property="og:title" content="PTT Panamá — Explora Panamá en 3D y Cotiza Directo por WhatsApp" />
+  <meta
+    property="og:description"
+    content="Plataforma turística 3D de Panamá Transports and Tours: buscador inteligente, cotización directa por WhatsApp y atención local 24/7."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pttpanama.com/" />
+  <meta property="og:image" content="https://pttpanama.com/assets/img/city-panama.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PTT Panamá — Explora Panamá en 3D y Cotiza Directo por WhatsApp" />
+  <meta name="twitter:description" content="Tours 3D, Canal de Panamá, Casco Viejo, Puertos de Cruceros (Colón & Amador), San Blas y Traslados VIP 24/7." />
+  <meta name="twitter:image" content="https://pttpanama.com/assets/img/city-panama.jpg" />
+  <meta name="theme-color" content="#07162a" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-ptt.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Structured Data (SEO: TravelAgency) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Panamá Transports and Tours (PTT)",
+    "url": "https://pttpanama.com/",
+    "telephone": "+507-6997-5382",
+    "email": "info@pttpanama.com",
+    "areaServed": ["Panama City", "Colón Cruise Port", "San Blas", "El Valle de Antón", "Tocumen Airport"],
+    "sameAs": [
+      "https://www.instagram.com/panamatransportsandtours?igsh=ejV6aHpiejNpc21k",
+      "https://www.facebook.com/share/1CyvPAFhpM/",
+      "https://www.tiktok.com/@panamatransportandtours?_t=ZS-8zyCv7DqyAR&_r=1"
+    ]
+  }
+  </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17988298194"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17988298194');
-</script>
-<!-- Event snippet for Vista de página conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17847026726/d0GfCMzk6tobEKaIkL5C',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
-
-<!-- Google tag. (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5JZ2Z35D4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G5JZ2Z35D4');
-</script>
-
 <body>
-
-<div id="preloader">
-  <div class="loader-content">
-    <img src="src/img/logo1.jpg" alt="Logo" class="loader-logo" />
-    <div class="loader-bar"></div>
-  </div>
-</div>
-  
-  <header id="main-header" class="hero">
-    <picture class="hero-bg">
-      <img id="header-slider-img"
-       src="src/img/sanblas/sanblas2.webp"
-       alt="San Blas, Panamá"
-       loading="eager"
-       decoding="async"
-       class="hero-background-image"
-        />
-    </picture>
-  
-    <nav class="main-nav">
-      <div class="logo">
-        <img src="src/img/logo1.jpg" alt="Panamá Transports and Tours" />
-
-        <div class="logo-texto">
-          <span data-translate="nombredeempresa">Panamá Transports and Tours</span>
-          <small class="slogan" data-translate="heromensaje">Explora, vive, recuerda 🌎</small>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand-lockup" aria-label="Panamá Transports and Tours PTT">
+        <span class="brand-logo-badge">
+          <img src="assets/img/logo-ptt.png" alt="Logo oficial Panamá Transports and Tours PTT" width="44" height="44" />
+        </span>
+        <div class="brand-text">
+          <span class="brand-name">PTT Panamá</span>
+          <span class="brand-slogan" data-i18n="brandSlogan">Explora · Vive · Recuerda</span>
         </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#inicio" data-i18n="navMap">Mapa 3D</a>
+        <a href="#explorar" data-i18n="navExplore">Explorar Tours</a>
+        <a href="#cotizador" data-i18n="navQuote">Cotizar</a>
+        <a href="#pagos" data-i18n="navPayments">Pagos</a>
+        <a href="#galeria" data-i18n="navGallery">Galería Real</a>
+        <a href="#flota" data-i18n="navFleet">Flota VIP</a>
+        <a href="#nosotros" data-i18n="navAbout">Nosotros</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="es" class="is-active">ES</button>
+          <button type="button" data-lang-btn="en">EN</button>
+        </div>
+
+        <a href="#cotizador" class="btn btn-whatsapp btn-sm nav-cta-desktop" data-i18n="navCta">Cotizar por WhatsApp</a>
+        <button type="button" class="mobile-menu-btn" id="btn-mobile-menu" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
-      <ul class="nav-links">
-        <li class="nav-inicio"><a href="#main-header" data-translate="inicionav">Inicio</a></li>
-        <li><a href="#destinos" data-translate="destinosnav">Destinos</a></li>
-        <li><a href="#nosotros" data-translate="nosotrosnav">Nosotros</a></li>
-        <li><a href="#contacto" data-translate="contactonav">Contacto</a></li>
-      </ul>
-      <!-- Botones de idioma -->
-        <div class="language-switcher">
-          <img src="src/img/es.png" alt="Español" id="lang-es" class="flag">
-          <img src="src/img/en.png" alt="English" id="lang-en" class="flag">
-        </div>
-    </nav>
-  <!-- Bandera solo visible en móvil -->
-    <div class="language-switcher-mobile">
-      <img src="src/img/es.png" alt="Español" id="lang-es-mobile" class="flag" />
-      <img src="src/img/en.png" alt="English" id="lang-en-mobile" class="flag" />
-    </div>
-
-    <div class="hero-content">
-      <h1 data-translate="herocontenth1">Explora Panamá como nunca antes</h1>
-      <p data-translate="herocontentp">Playas, montañas y cultura única. ¡Elige tu aventura!</p>
-      <a href="#destinos" class="btn-primary" data-translate="herocontentbutton">Ver tours disponibles 🚐</a>
     </div>
   </header>
 
+  <nav class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menú móvil">
+    <a href="#inicio" data-i18n="navMap">Mapa 3D</a>
+    <a href="#explorar" data-i18n="navExplore">Explorar Tours</a>
+    <a href="#cotizador" data-i18n="navQuote">Cotizar</a>
+    <a href="#pagos" data-i18n="navPayments">Pagos</a>
+    <a href="#galeria" data-i18n="navGallery">Galería Real</a>
+    <a href="#flota" data-i18n="navFleet">Flota VIP</a>
+    <a href="#nosotros" data-i18n="navAbout">Nosotros</a>
+    <a href="#faq" data-i18n="navFaq">FAQ</a>
+  </nav>
 
-  <section class="section" id="destinos">
-    <h2 data-translate="destinosh2">Destinos Populares</h2>
-    <div class="destinations">
-      <div class="destination" data-aos="fade-up">
-          <div class="image-slider" data-tour="tour1">
-              <button class="slider-arrow left" aria-label="Anterior">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                 <polyline points="15 18 9 12 15 6"></polyline>
-               </svg>
-              </button>
+  <!-- ================= 3D INTERACTIVE ISTHMUS HERO ================= -->
+  <section class="hero-3d" id="inicio">
+    <div class="hero-3d-canvas-wrap" id="panama-3d-canvas" data-atmosphere="sunset"></div>
+    <div class="hero-3d-labels" id="panama-3d-labels" aria-hidden="false"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
 
-              <button class="slider-arrow right" aria-label="Siguiente">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-
-            <img src="src/img/city/citytours-2.jpg" alt="Vista panorámica de la Ciudad de Panamá desde la Cinta Costera durante el city tour" class="active" />
-            <img src="src/img/city/citytours-12.webp" alt="Grupo de turistas posando frente a la icónica F&F Tower y rascacielos modernos durante el City Tour en Ciudad de Panamá" class="" />
-            <img src="src/img/city/citytours-13.webp" alt="Grupo de turistas frente a la Catedral Basílica Santa María la Antigua en el Casco Antiguo de Panamá durante un recorrido cultural" class="" />
-            <img src="src/img/city/citytours-3.jpg" alt="Arquitectura colonial del Casco Antiguo de Panamá durante recorrido guiado" class="" />
-            <img src="src/img/city/citytours-4.jpg" alt="Guía turística explicando la historia panameña frente a una iglesia colonial en el Casco Viejo" class="" />
-            <img src="src/img/city/citytours-9.jpg" alt="Degustación de ceviche en el Mercado de Mariscos de Ciudad de Panamá" class="" />
-            <img src="src/img/city/citytours-6.jpg" alt="Visitantes explorando la Plaza de Francia en el Casco Antiguo de Panamá" class="" />
-            <!-- Aquí van los puntos -->
-            <div class="slider-dots"></div>
+    <div class="container hero-hud-layer">
+      <div class="hero-top-grid">
+        <div class="hero-copy">
+          <div class="hero-eyebrow" data-i18n="heroEyebrow">OPERADOR LOCAL CERTIFICADO · 100% PANAMEÑO · ATENCIÓN 24/7</div>
+          <h1>
+            <span data-i18n="heroTitle1">Explora Panamá en</span>
+            <span class="hero-title-accent" data-i18n="heroTitleAccent">Dimensión 3D</span>
+          </h1>
+          <p data-i18n="heroSubtitle">
+            Navega el Istmo de Panamá de costa a costa: Canal de Panamá, Puerto de Cruceros de Colón, San Blas, Casco Viejo y Valle de Antón. Arma tu plan y cotiza directo con nosotros por WhatsApp.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#explorar" class="btn btn-gold" data-i18n="heroBtnExplore">Explorar Experiencias</a>
+            <a href="#cotizador" class="btn btn-whatsapp" data-i18n="heroBtnQuote">Cotizar por WhatsApp</a>
           </div>
-        <div class="destination-content">
-          <h3 data-translate="citytourh3">City Tour Panamá: Historia, Arquitectura y Sabor Local</h3>
-          <p data-translate="citytourp">¿Listo para descubrir lo mejor de la Ciudad de Panamá?
-Este tour guiado te lleva por los lugares más emblemáticos y encantadores de la capital. Desde las maravillas de la ingeniería moderna hasta los sabores auténticos del mercado popular, cada parada cuenta una historia panameña que no te querrás perder.
-</p>
-          <button onclick="openInfo('citytours1')" data-translate="citytourbutton">Explora el tour completo 🚐</button>
+          <div class="hero-drag-hint">
+            <span>✦</span>
+            <span data-i18n="heroHint">Arrastra para rotar el mapa 3D · Haz clic en cualquier baliza</span>
+          </div>
+        </div>
+
+        <aside class="hud-spotlight-card" id="hud-spotlight-card" aria-live="polite"></aside>
+      </div>
+
+      <div class="hero-bottom-dock">
+        <div class="hud-destination-pills" id="hud-destination-pills"></div>
+
+        <div class="hud-3d-controls" role="toolbar" aria-label="Controles del mapa 3D">
+          <button type="button" class="hud-ctrl-btn" data-atmosphere="day" data-i18n="atmosDay">Caribe</button>
+          <button type="button" class="hud-ctrl-btn is-active" data-atmosphere="sunset" data-i18n="atmosSunset">Atardecer</button>
+          <button type="button" class="hud-ctrl-btn" data-atmosphere="night" data-i18n="atmosNight">Nocturno</button>
+          <span class="hud-divider" aria-hidden="true"></span>
+          <button type="button" class="hud-ctrl-btn is-active" id="btn-toggle-orbit">Órbita: ON</button>
+          <button type="button" class="hud-ctrl-btn" id="btn-zoom-in" aria-label="Zoom in">+</button>
+          <button type="button" class="hud-ctrl-btn" id="btn-zoom-out" aria-label="Zoom out">−</button>
+          <button type="button" class="hud-ctrl-btn" id="btn-reset-3d" data-i18n="resetView">Vista Istmo</button>
         </div>
       </div>
-      <div class="destination" data-aos="fade-up">
-          <div class="image-slider" data-tour="tour2">
-              <button class="slider-arrow left" aria-label="Anterior">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                 <polyline points="15 18 9 12 15 6"></polyline>
-               </svg>
-              </button>
-
-              <button class="slider-arrow right" aria-label="Siguiente">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>          
-            <img src="src/img/monkey/monkeyisland-2.webp" alt="Tour en bote por el Lago Gatún rodeado de selva tropical rumbo a la Isla de los Monos" class="active" />
-            <img src="src/img/monkey/monkeyisland-3.webp" alt="Mono capuchino sobre una lancha en la Isla de los Monos, Parque Nacional Soberanía" class="" />
-            <img src="src/img/monkey/monkeyisland-4.jpg" alt="Monos aulladores observando desde los árboles durante el tour en la Isla de los Monos" class="" />
-            <img src="src/img/monkey/monkeyisland-1.jpg" alt="Turistas alimentando monos tamarinos desde el bote en el tour por la Isla de los Monos" class="" />
-            <!-- Aquí van los puntos -->
-            <div class="slider-dots"></div>
-          </div>
-        <div class="destination-content">
-          <h3 data-translate="mokeyislandh3">🐒 Isla de los Monos</h3>
-          <p data-translate="mokeyislandp">A solo minutos de la Ciudad de Panamá, esta experiencia te lleva al corazón del Parque Nacional Soberanía, navegando por el majestuoso Lago Gatún, donde conviven la ingeniería del Canal y la biodiversidad más vibrante del país. La Isla de los Monos es hogar de especies como los monos capuchinos, aulladores y tamarinos, que se acercan curiosos a los botes en busca de frutas y atención.
-</p>
-        <button onclick="openInfo('monkey')" data-translate="mokeyislandbutton">Explora el tour completo 🚐</button>
-        </div>
-      </div>
-      <div class="destination" data-aos="fade-up">
-            <div class="image-slider" data-tour="tour3">
-              <button class="slider-arrow left" aria-label="Anterior">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                 <polyline points="15 18 9 12 15 6"></polyline>
-               </svg>
-              </button>
-
-              <button class="slider-arrow right" aria-label="Siguiente">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            <img src="src/img/sanblas/sanblas4.jpg" alt="Isla paradisíaca en San Blas, uno de los principales destinos turísticos de Panamá " class="active" />
-            <img src="src/img/sanblas/sanblas1.jpg" alt="Paseo en lancha por las playas de San Blas durante un día soleado" class="" />
-            <img src="src/img/sanblas/sanblas7.jpg" alt="Tour en lancha por Guna Yala, una experiencia única en San Blas" class="" />
-            <img src="src/img/sanblas/sanblas3.jpg" alt="Mercado de artesanías y bisutería local en isla de San Blas, Panamá" class="" />
-            <img src="src/img/sanblas/sanblas8.jpg" alt="Snorkel en aguas cristalinas sobre arenas blancas en Guna Yala, San Blas" class="" />
-                          <!-- Aquí van los puntos -->
-            <div class="slider-dots"></div>
-          </div>
-        <div class="destination-content">
-          <h3 data-translate="sanblash3">San Blas – Tour Caribeño Express</h3>
-          <p data-translate="sanblasp">Conecta con las aguas cristalinas y arena blanca del Caribe panameño. Este tour a San Blas incluye transporte cómodo desde la ciudad, pago de impuestos comarcales, almuerzo típico y paseo en bote a una islas paradisíacas. Ideal para quienes desean un escape tropical de un solo día.</p>
-          <button onclick="openInfo('sanblas')" data-translate="sanblasbutton">Explora el tour completo 🏝️</button>
-        </div>
-      </div>
-      <div class="destination" data-aos="fade-up">
-            <div class="image-slider" data-tour="tour4">
-              <button class="slider-arrow left" aria-label="Anterior">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                 <polyline points="15 18 9 12 15 6"></polyline>
-               </svg>
-              </button>
-
-              <button class="slider-arrow right" aria-label="Siguiente">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            <img src="src/img/shopping/shoppingcity1.jpg" alt="Puente de las Américas visto desde la costa durante el tour de compras en la ciudad"
- class="active" />
-            <img src="src/img/shopping/shoppingcity2.jpg" alt="Interior del Albrook Mall, centro comercial más grande de Panamá y Latinoamérica" class="" />
-            <img src="src/img/shopping/shoppingcity3.jpg" alt="Tour de compras en Ciudad de Panamá con vistas al Puente de las Américas" class="" />
-                        <!-- Aquí van los puntos -->
-            <div class="slider-dots"></div>
-          </div>
-        <div class="destination-content">
-          <h3 data-translate="shoppingcityh3">Shopping City – Compras y vistas urbanas</h3>
-          <p data-translate="shoppingcityp">Disfruta un día completo de compras y exploración en la Ciudad de Panamá. Este paquete incluye transporte a Albrook Mall, uno de los centros comerciales más grandes de Latinoamérica, además de paradas panorámicas en el Cosway de Amador y el icónico Puente de las Américas. Ideal para quienes quieren combinar compras, vistas y comodidad.</p>
-           <button onclick="openInfo('shoppingcity')" data-translate="shoppingcitybutton">Explora el tour completo 🛍️</button>
-        </div>
-      </div>
-      <div class="destination" data-aos="fade-up">
-            <div class="image-slider" data-tour="tour5">
-              <button class="slider-arrow left" aria-label="Anterior">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                 <polyline points="15 18 9 12 15 6"></polyline>
-               </svg>
-              </button>
-
-              <button class="slider-arrow right" aria-label="Siguiente">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            <img src="src/img/transporte/transporte4 - copia.jpg" alt="Conductor profesional esperando a los pasajeros con cartel de bienvenida en el Aeropuerto Internacional de Tocumen" class="active" />
-            <img src="src/img/transporte/transporte2.jpg" alt="Servicio de transporte ejecutivo por horas en Ciudad de Panamá para clientes corporativos" class="" />
-            <img src="src/img/transporte/transporte3.jpg" alt="Recogida de pasajeros en el Aeropuerto Internacional de Tocumen con atención personalizada" class="" />
-            <img src="src/img/transporte/transporte5.webp" alt="Grupo de turistas en la entrada de su hotel tras usar servicio de traslado desde el aeropuerto en Ciudad de Panamá" class="" />
-            <img src="src/img/transporte/transporte6.webp" alt="Vehículo tipo van ejecutiva esperando en la entrada de hotel para traslado privado en Ciudad de Panamá" class="" />
-            <img src="src/img/transporte/transporte7.webp" alt="Letrero de PTY en el Aeropuerto de Tocumen, punto de encuentro para traslados y recogidas de pasajeros" />
-                        <!-- Aquí van los puntos -->
-            <div class="slider-dots"></div>
-          </div>
-      <div class="destination-content">
-        <h3 data-translate="trasladosh3">Traslados Aeropuerto ↔ Hotel y Ejecutivos</h3>
-        <p data-translate="trasladosp">Comodidad, puntualidad y atención personalizada para tus desplazamientos en la Ciudad de Panamá. Ofrecemos traslados desde y hacia el aeropuerto, así como transporte interno y ejecutivo por horas.</p>
-          <button onclick="openInfo('traslados')" data-translate="trasladosbutton">Ver más detalles 🚘</button>
-      </div>
-      </div>
-      <div class="destination" data-aos="fade-up">
-            <div class="image-slider" data-tour="tour6">
-              <button class="slider-arrow left" aria-label="Anterior">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                 <polyline points="15 18 9 12 15 6"></polyline>
-               </svg>
-              </button>
-
-              <button class="slider-arrow right" aria-label="Siguiente">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            <img src="src/img/valle/valle-anton2.jpg" alt="Aguas termales naturales rodeadas de vegetación en el cráter del Valle de Antón" class="active" />
-            <img src="src/img/valle/valle-anton3.jpg" alt="Mariposa Morpho azul dentro del mariposario del Valle de Antón, Panamá" class="" />
-            <img src="src/img/valle/valle-anton4.jpg" alt="Vista panorámica del Valle de Antón desde un mirador rodeado de montañas y vegetación" class="" />
-            <img src="src/img/valle/valle-anton6.webp" alt="Turistas disfrutando una caminata por el río en medio de la selva tropical del Valle de Antón, rodeados de naturaleza y aventura" class="" />
-                        <!-- Aquí van los puntos -->
-            <div class="slider-dots"></div>
-          </div>
-        <div class="destination-content">
-          <h3 data-translate="valleh3">⛰️ Tour al Valle de Antón – Naturaleza y Bienestar</h3>
-          <p data-translate="vallep">Explora este mágico destino ubicado dentro de un cráter volcánico, rodeado de montañas, aguas termales y vida silvestre. Una escapada perfecta para reconectar con la naturaleza.</p>
-          <button onclick="openInfo('antontour')" data-translate="vallebutton">Explora el tour completo 🏞️</button>
-        </div>
-      </div>
-      <!-- AQUÍ puedes insertar los demás destinos existentes sin borrarlos -->
     </div>
   </section>
 
-  <section class="servicios-section" id="servicios">
-  <div class="container">
-    <h2 data-translate="serviciosH2">Nuestros Servicios</h2>
-    <ul class="servicios-list">
-      <li data-translate="servicio1">
-        Traslados privados y seguros desde y hacia aeropuertos, hoteles y destinos turísticos, con vehículos modernos y conductores profesionales que garantizan comodidad y puntualidad.
-      </li>
-      <li data-translate="servicio2">
-        Tours personalizados a los principales atractivos de Panamá, incluyendo el Canal de Panamá, Casco Viejo y el Parque Natural Metropolitano, con guías expertos que hacen tu experiencia inolvidable.
-      </li>
-      <li data-translate="servicio3">
-        Servicio de atención al cliente 24/7 para resolver cualquier duda y ayudarte a planificar tu viaje sin complicaciones.
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="porque-section" id="por-que-elegirnos">
-  <div class="container">
-    <h2 data-translate="porqueElegirnosH2">¿Por qué elegir Panamá Transports and Tours?</h2>
-    <ul class="porque-list">
-      <li data-translate="porqueElegirnosP1">
-        Somos una empresa local con años de experiencia en turismo y transporte, comprometidos con la seguridad y satisfacción de nuestros clientes.
-      </li>
-      <li data-translate="porqueElegirnosP2">
-        Nuestros vehículos están equipados con todas las comodidades para que tu viaje sea cómodo y seguro.
-      </li>
-      <li data-translate="porqueElegirnosP3">
-        Ofrecemos atención personalizada y tours a la medida, porque sabemos que cada viajero es único.
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="testimonios-section" id="testimonios">
-  <div class="container">
-    <h2 data-translate="testimoniosH2">Lo que dicen nuestros clientes</h2>
-    <div class="testimonial-block">
-      <blockquote data-translate="testimonio1">
-        "El tour al Canal de Panamá fue espectacular. El guía fue muy amable y aprendí mucho. Sin duda repetiré con Panamá Transports and Tours."
-      </blockquote>
-      <div class="stars">★★★★★</div>
+  <!-- ================= TRUST BAR ================= -->
+  <section class="trust-strip" aria-label="Garantías PTT Panamá">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">🇵🇦</div>
+        <div>
+          <strong data-i18n="trust1Title">+5 Años Locales</strong>
+          <span data-i18n="trust1Sub">Agencia 100% panameña</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">💬</div>
+        <div>
+          <strong data-i18n="trust2Title">Tarifa Directa</strong>
+          <span data-i18n="trust2Sub">Cotización real sin intermediarios</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">🚢</div>
+        <div>
+          <strong data-i18n="trust3Title">Vuelos y Cruceros</strong>
+          <span data-i18n="trust3Sub">Tocumen PTY &amp; Puerto de Colón</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">⚡</div>
+        <div>
+          <strong data-i18n="trust4Title">Respuesta en Minutos</strong>
+          <span data-i18n="trust4Sub">Atención WhatsApp 24/7</span>
+        </div>
+      </div>
     </div>
-    <div class="testimonial-block">
-      <blockquote data-translate="testimonio2">
-        "Excelente servicio de traslado, puntual y cómodo. Me sentí muy seguro y bien atendido en todo momento."
-      </blockquote>
-      <div class="stars">★★★★☆</div>
+  </section>
+
+  <!-- ================= SMART SEARCH & EXPERIENCE CATALOG ================= -->
+  <section class="section" id="explorar">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="searchEyebrow">✦ BUSCADOR ESPACIAL SINCRONIZADO CON 3D</span>
+        <h2 class="section-title" data-i18n="searchTitle">Encuentra tu Experiencia Ideal en Panamá</h2>
+        <p class="section-subtitle" data-i18n="searchSubtitle">
+          Filtra por destino, tiempo disponible, escala en Tocumen o llegada en crucero — el mapa 3D se sincroniza al instante.
+        </p>
+      </div>
+
+      <div class="search-panel">
+        <div class="omnibar-row">
+          <div class="omnibar-input-wrap">
+            <svg class="omnibar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.35-4.35" stroke-linecap="round" />
+            </svg>
+            <input
+              type="search"
+              id="search-input"
+              data-i18n-placeholder="searchPlaceholder"
+              placeholder="Buscar: Colón, San Blas, Canal, Miraflores, Monos, Albrook, Aeropuerto..."
+              autocomplete="off"
+            />
+            <button type="button" class="omnibar-clear" id="search-clear-btn" hidden aria-label="Clear search">×</button>
+            <span class="omnibar-kbd" data-i18n="searchShortcut">Atajo /</span>
+          </div>
+        </div>
+
+        <div class="quick-chips-row">
+          <button type="button" class="quick-chip" id="btn-layover-toggle" data-i18n="chipLayover">✈️ Apto Escala PTY</button>
+          <button type="button" class="quick-chip" id="btn-cruise-toggle" data-i18n="chipCruise">🚢 Cruceros Colón</button>
+          <button type="button" class="quick-chip" data-quick-query="San Blas" data-i18n="chipSanBlas">🏝️ San Blas</button>
+          <button type="button" class="quick-chip" data-quick-query="Canal" data-i18n="chipCanal">🏛️ Canal y Casco Viejo</button>
+          <button type="button" class="quick-chip" data-quick-query="Monos" data-i18n="chipMonkeys">🐒 Isla de los Monos</button>
+          <button type="button" class="quick-chip" data-quick-query="Valle" data-i18n="chipValle">🌋 Valle de Antón</button>
+          <button type="button" class="quick-chip" data-quick-query="Albrook" data-i18n="chipShopping">🛍️ Albrook y Amador</button>
+          <button type="button" class="quick-chip" data-quick-query="Aeropuerto" data-i18n="chipTransfer">🚐 Traslado PTY</button>
+        </div>
+
+        <div class="category-pills" id="category-pills"></div>
+
+        <div class="facets-row facets-row-3">
+          <div class="facet-field">
+            <label for="filter-duration" data-i18n="durLabel">Duración</label>
+            <select id="filter-duration">
+              <option value="all" data-i18n="durAll">Cualquier duración</option>
+              <option value="short" data-i18n="durShort">Express (≤ 4h)</option>
+              <option value="half" data-i18n="durHalf">Medio día (4–7h)</option>
+              <option value="full" data-i18n="durFull">Día completo (8–12h)</option>
+            </select>
+          </div>
+
+          <div class="facet-field">
+            <label for="filter-profile" data-i18n="profLabel">Perfil de viajero</label>
+            <select id="filter-profile">
+              <option value="all" data-i18n="profAll">Cualquier perfil</option>
+              <option value="cruise" data-i18n="profCruise">Pasajero de Crucero</option>
+              <option value="layover" data-i18n="profLayover">Escala / Tránsito</option>
+              <option value="families" data-i18n="profFamilies">Familias</option>
+              <option value="couples" data-i18n="profCouples">Parejas</option>
+              <option value="executives" data-i18n="profExecutives">Ejecutivos</option>
+              <option value="photography" data-i18n="profPhotography">Fotografía</option>
+              <option value="adventure" data-i18n="profAdventure">Aventura</option>
+            </select>
+          </div>
+
+          <div class="facet-field">
+            <label for="filter-sort" data-i18n="sortLabel">Ordenar por</label>
+            <select id="filter-sort">
+              <option value="popular" data-i18n="sortPopular">Más Solicitados</option>
+              <option value="duration-asc" data-i18n="sortDurationAsc">Menor Duración</option>
+              <option value="rating" data-i18n="sortRating">Mejor Valorados</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="search-meta-bar">
+          <strong id="search-results-count">8 experiencias encontradas</strong>
+          <button type="button" class="link-btn" id="btn-reset-filters" data-i18n="chipClear">Limpiar filtros</button>
+        </div>
+      </div>
+
+      <div class="experience-grid" id="experience-grid"></div>
     </div>
-    <div class="testimonial-block">
-      <blockquote data-translate="testimonio3">
-        "Los tours personalizados hicieron que mi visita a Panamá fuera inolvidable. ¡Muy recomendados!"
-      </blockquote>
-      <div class="stars">★★★★★</div>
+  </section>
+
+  <!-- ================= DIRECT WHATSAPP QUOTE BUILDER ================= -->
+  <section class="section quote-section" id="cotizador">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="quoteEyebrow">COTIZACIÓN DIRECTA Y PRÁCTICA POR WHATSAPP</span>
+        <h2 class="section-title" data-i18n="quoteTitle">Arma tu Tour, Paquete o Traslado y Cotiza Directo en 30 Segundos</h2>
+        <p class="section-subtitle" data-i18n="quoteSubtitle">
+          Selecciona tus destinos, fecha y grupo — generamos tu solicitud detallada al instante para enviarla directo a nuestro WhatsApp y darte la mejor tarifa personalizada.
+        </p>
+      </div>
+
+      <div class="quote-mode-tabs" role="tablist">
+        <button type="button" class="quote-mode-tab is-active" data-quote-mode="tours" data-i18n="tabTours">
+          Tours &amp; Paquetes Multi-Experiencia
+        </button>
+        <button type="button" class="quote-mode-tab" data-quote-mode="transfers" data-i18n="tabTransfers">
+          Traslados Aeropuerto, Colón y Ejecutivos
+        </button>
+      </div>
+
+      <div class="quote-layout">
+        <div class="quote-builder-card" id="quote-builder-body"></div>
+
+        <aside class="quote-receipt-card" aria-live="polite">
+          <div class="receipt-head">
+            <div class="receipt-brand-row">
+              <img src="assets/img/logo-ptt-transparent.png" alt="PTT Panamá" class="receipt-brand-logo" width="38" height="38" />
+              <h3 data-i18n="receiptTitle">Tu Solicitud de Cotización</h3>
+            </div>
+            <span class="receipt-ref-badge tabular" id="quote-ref-badge">Ref. PTT-26</span>
+          </div>
+
+          <div class="flight-track-card">
+            <span class="flight-track-title" data-i18n="flightSectionTitle">✈️ Seguimiento de vuelo / crucero (opcional)</span>
+            <input type="text" id="flight-number" data-i18n-placeholder="flightNumberPh" placeholder="N.º de vuelo o crucero (Ej. CM 421)" autocomplete="off" />
+            <div class="flight-track-row">
+              <select id="flight-terminal" aria-label="Airport Terminal or Cruise Port"></select>
+              <input type="time" id="flight-arrival" aria-label="Estimated arrival time" title="Hora estimada de llegada" />
+            </div>
+          </div>
+
+          <div class="payment-selector-box">
+            <span class="client-fields-title" data-i18n="paymentSelectLabel">Forma de pago preferida</span>
+            <div class="payment-pills" id="quote-payment-pills"></div>
+            <p class="payment-selected-note" id="quote-payment-note"></p>
+          </div>
+
+          <div class="client-fields">
+            <span class="client-fields-title" data-i18n="clientDetailsTitle">Tus datos para responderte de inmediato (opcional)</span>
+            <input type="text" id="client-name" data-i18n-placeholder="clientNamePh" placeholder="Tu nombre completo" />
+            <input type="text" id="client-hotel" data-i18n-placeholder="clientHotelPh" placeholder="Hotel, Terminal PTY o Puerto de Colón" />
+            <input type="text" id="client-notes" data-i18n-placeholder="clientNotesPh" placeholder="Notas especiales (ej. hora de embarque, horario escala...)" />
+          </div>
+
+          <div id="quote-receipt-dynamic"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ACCEPTED PAYMENT METHODS ================= -->
+  <section class="section section-white" id="pagos">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow" data-i18n="paymentsEyebrow">PAGOS SEGUROS Y FLEXIBLES EN PANAMÁ</span>
+        <h2 class="section-title" data-i18n="paymentsTitle">Paga Como Prefieras al Confirmar tu Cotización</h2>
+        <p class="section-subtitle" data-i18n="paymentsSubtitle">
+          Sin cobros sorpresa ni intermediarios. Cotiza directo por WhatsApp y elige el método más cómodo para ti: Tarjeta, Yappy, Transferencia ACH o Efectivo USD.
+        </p>
+      </div>
+
+      <div class="payments-grid" id="payments-grid"></div>
+
+      <div class="payments-steps-bar">
+        <div class="p-step" data-i18n="paymentsStep1">1. Arma tu solicitud en el cotizador y elige tu forma de pago.</div>
+        <div class="p-step" data-i18n="paymentsStep2">2. Recibes tu tarifa exacta en minutos por WhatsApp.</div>
+        <div class="p-step" data-i18n="paymentsStep3">3. Confirmas con enlace de pago seguro, Yappy, ACH o efectivo USD.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AUTHENTIC 3:4 REAL PHOTO GALLERY ================= -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow" data-i18n="galleryEyebrow">FOTOS 100% REALES DE NUESTROS SERVICIOS</span>
+        <h2 class="section-title" data-i18n="galleryTitle">Viajeros Reales, Canal de Panamá y Flota PTT en Acción</h2>
+        <p class="section-subtitle" data-i18n="gallerySubtitle">
+          Haz clic en cualquier fotografía para verla en grande — autenticidad real desde el Canal de Panamá, Calzada de Amador y el Puerto de Cruceros de Colón.
+        </p>
+      </div>
+      <div class="gallery-filter-pills" id="gallery-filter-pills"></div>
+      <div class="real-gallery-grid" id="real-gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= VIP FLEET ================= -->
+  <section class="section" id="flota">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow" data-i18n="fleetEyebrow">FLOTA MODERNA Y SEGURA</span>
+        <h2 class="section-title" data-i18n="fleetTitle">Confort Ejecutivo en Cada Kilómetro</h2>
+        <p class="section-subtitle" data-i18n="fleetSubtitle">
+          Vehículos asegurados con aire acondicionado, mantenimiento preventivo certificado y conductores locales bilingües.
+        </p>
+      </div>
+      <div class="fleet-grid" id="fleet-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT US ================= -->
+  <section class="section section-white" id="nosotros">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow" data-i18n="aboutEyebrow">100% AGENCIA PANAMEÑA</span>
+        <h2 class="section-title" data-i18n="aboutTitle">Más de 5 Años Creando Recuerdos Inolvidables en Panamá</h2>
+        <p data-i18n="aboutP1"></p>
+        <p data-i18n="aboutP2"></p>
+        <ul class="about-bullets" id="about-bullets"></ul>
+      </div>
+      <div class="about-visual about-visual-real">
+        <img src="assets/img/real/real-viajeros-costa.jpg" alt="Equipo PTT Panamá con viajeros reales frente al mar" loading="lazy" />
+        <div class="about-stat-badge">
+          <strong>4.9 ★ · 24/7</strong>
+          <span>Panamá Transports and Tours</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section" id="testimonios">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow" data-i18n="reviewsEyebrow">EXPERIENCIAS REALES</span>
+        <h2 class="section-title" data-i18n="reviewsTitle">Lo Que Dicen Nuestros Viajeros</h2>
+      </div>
+      <div class="reviews-grid" id="reviews-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section section-white" id="faq">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow" data-i18n="faqEyebrow">PREGUNTAS FRECUENTES</span>
+        <h2 class="section-title" data-i18n="faqTitle">Todo Lo Que Debes Saber Antes de Viajar</h2>
+      </div>
+      <div class="faq-list" id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- ================= DIRECT CONTACT CTA ================= -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="contact-banner">
+        <div>
+          <h2 data-i18n="contactTitle">¿Listo para Cotizar tu Próxima Aventura en Panamá?</h2>
+          <p data-i18n="contactSubtitle">Escríbenos directo por WhatsApp, llamada o correo — respondemos en minutos las 24 horas.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="https://wa.me/50769975382" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+            WhatsApp +507 6997-5382
+          </a>
+          <a href="mailto:info@pttpanama.com" class="btn btn-glass btn-lg">info@pttpanama.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-lockup" style="margin-bottom: 14px;">
+            <span class="brand-logo-badge brand-logo-badge-lg">
+              <img src="assets/img/logo-ptt.png" alt="Logo oficial Panamá Transports and Tours PTT" width="48" height="48" />
+            </span>
+            <div class="brand-text">
+              <span class="brand-name">Panamá Transports and Tours</span>
+              <span class="brand-slogan" data-i18n="brandSlogan">Explora · Vive · Recuerda</span>
+            </div>
+          </div>
+          <p data-i18n="footerMade" style="margin: 0; font-size: 0.88rem;"></p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footerContactTitle">Contacto Directo</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+50769975382">Tel / WhatsApp: +507 6997-5382</a></li>
+            <li><a href="mailto:info@pttpanama.com">Email: info@pttpanama.com</a></li>
+            <li><span data-i18n="footerLocation">Ciudad de Panamá · República de Panamá</span></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footerSocialTitle">Redes Oficiales</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/panamatransportsandtours?igsh=ejV6aHpiejNpc21k" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1CyvPAFhpM/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.tiktok.com/@panamatransportandtours?_t=ZS-8zyCv7DqyAR&_r=1" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Panamá Transports and Tours PTT. <span data-i18n="footerRights">Todos los derechos reservados.</span></span>
+        <span>https://pttpanama.com/</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= TOUR DETAIL MODAL ================= -->
+  <div class="modal-overlay" id="tour-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Close">×</button>
+      <div id="tour-modal-body"></div>
     </div>
   </div>
-</section>
 
-<section class="section about-us" id="nosotros">
-  <div class="about-container">
-    <div class="about-text">
-      <h2 data-translate="nosotrosh2">🌎 ¿Quiénes Somos?</h2>
-      <p data-translate="nosotrosp">En Panamá Transports and Tours, llevamos más de 5 años creando experiencias turísticas auténticas e inolvidables en todo Panamá. Somos una agencia 100% panameña enfocada en brindar atención personalizada, seguridad y conexión con la naturaleza y cultura del país.</p>
-      <ul class="about-values">
-        <li data-translate="nosotrosli1">✅ Atención profesional y cercana</li>
-        <li data-translate="nosotrosli2">✅ Viajes seguros y organizados</li>
-        <li data-translate="nosotrosli3">✅ Experiencias que conectan con lo local</li>
-      </ul>
-    </div>
-    <div class="about-img">
-      <img src="src/img/quienes-somos.jpg" alt="Equipo Panamá Transports and Tours">
-    </div>
-  </div>
-</section>
-
-<section class="section contact-section" id="contacto">
-  <div class="contact-container">
-    <h2 data-translate="contactanosh2">📬 Contáctanos</h2>
-    <p data-translate="contactanosp">¿Tienes preguntas o deseas reservar un tour? ¡Estamos listos para ayudarte!</p>
-<div class="contact-details">
-  <p>📞 <a href="tel:+50769975382">+507 69975382</a></p>
-  <p>✉️ <a href="mailto:info@pttpanama.com" class="email-link">info@pttpanama.com</a></p>
-
-  <a class="btn-secondary" 
-     href="https://wa.me/50769975382" 
-     target="_blank" 
-     data-translate="contactanosbutton"
-     onclick="gtag('event', 'whatsapp_click', {
-       event_category: 'engagement',
-       event_label: 'WhatsApp Contact Details'
-     });">
-     Escríbenos por WhatsApp
-  </a>
-</div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-container">
-    <p data-translate="footerp1">&copy; 2025 <strong>Panamá Transports and Tours PTT</strong>. Todos los derechos reservados.</p>
-    <p class="footer-social" data-translate="footerp2">
-      🌐 Síguenos en: 
-      <a href="https://www.instagram.com/panamatransportsandtours?igsh=ejV6aHpiejNpc21k" target="_blank">Instagram</a> |
-      <a href="https://www.facebook.com/share/1CyvPAFhpM/" target="_blank">Facebook</a> |
-      <a href="https://www.tiktok.com/@panamatransportandtours?_t=ZS-8zyCv7DqyAR&_r=1" target="_blank">TikTok</a>
-    </p>
-  </div>
-</footer>
-
-
-<div class="floating-buttons">
-  <!-- Botón WhatsApp personalizado -->
-  <a href="https://wa.me/50769975382" 
-     class="floating-btn whatsapp" 
-     target="_blank" 
-     aria-label="WhatsApp"
-     onclick="gtag('event', 'whatsapp_click', {
-       event_category: 'engagement',
-       event_label: 'WhatsApp Floating'
-     });">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- Botón Correo -->
-  <a href="mailto:info@pttpanama.com" 
-     class="floating-btn email" 
-     aria-label="Correo"
-     onclick="gtag('event', 'email_click', {
-       event_category: 'engagement',
-       event_label: 'Email Floating'
-     });">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
-
-  <div class="info-panel" id="info-panel">
-    <button class="info-close" onclick="closeInfo()" aria-label="Cerrar panel">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-    <circle cx="12" cy="12" r="12" fill="#ff5f5f"/>
-    <line x1="15" y1="9" x2="9" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-    <line x1="9" y1="9" x2="15" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</button>
-    
-    <div id="info-content"></div>
+  <!-- ================= REAL PHOTO LIGHTBOX ================= -->
+  <div class="lightbox-overlay" id="photo-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="assets/img/real/real-colon-civic.jpg" alt="" />
+      <figcaption>
+        <span class="lightbox-tag" id="lightbox-tag"></span>
+        <span id="lightbox-caption"></span>
+      </figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">›</button>
   </div>
 
-<div class="bottom-nav">
-  <a href="#main-header" class="nav-item">
-    <i class="fas fa-home"></i>
-    <span data-translate="bottonnav-inicio">Inicio</span>
-  </a>
-  <a href="#destinos" class="nav-item">
-    <i class="fas fa-map-marked-alt"></i>
-    <span data-translate="bottonnav-destino">Destinos</span>
-  </a>
-  <a href="#nosotros" class="nav-item">
-    <i class="fas fa-info-circle"></i>
-    <span data-translate="bottonnav-nosotros">Nosotros</span>
-  </a>
-  <a href="#contacto" class="nav-item">
-    <i class="fas fa-phone"></i>
-    <span data-translate="bottonnav-contacto">Contacto</span>
-  </a>
-</div>
+  <!-- ================= FLOATING LIVE QUOTE BAR & TOAST ================= -->
+  <div class="floating-quote-bar" id="floating-quote-bar"></div>
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite"></div>
 
-<!-- Barra social minimalista -->
-<div class="social-bar-minimal">
-  <a href="https://www.instagram.com/panamatransportsandtours?igsh=ejV6aHpiejNpc21k" target="_blank" class="social-item" aria-label="Instagram">
-    <!-- Instagram -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.4.4.6.2 1.1.5 1.6.9.5.5.8 1 1 1.6.2.5.3 1.2.4 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.4-.2.6-.5 1.1-.9 1.6-.5.5-1 .8-1.6 1-.5.2-1.2.3-2.4.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.4-.4-.6-.2-1.1-.5-1.6-.9-.5-.5-.8-1-.9-1.6-.2-.5-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.4.2-.6.5-1.1.9-1.6.5-.5 1-.8 1.6-1 .5-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7 .1 5.7.1 4.6.3 3.7.6c-.9.4-1.6.8-2.3 1.5C.8 2.8.4 3.5 0 4.4.3 5.3.1 6.4.1 7.7 0 9 .1 9.4.1 12s0 3-.1 4.3c0 1.3-.2 2.4-.5 3.3.4.9.8 1.6 1.5 2.3.7.7 1.4 1.1 2.3 1.5.9.3 2 .5 3.3.5C8.3 24 8.7 24 12 24s3.6 0 4.9-.1c1.3 0 2.4-.2 3.3-.5.9-.4 1.6-.8 2.3-1.5.7-.7 1.1-1.4 1.5-2.3.3-.9.5-2 .5-3.3.1-1.3.1-1.7.1-4.9s0-3.6-.1-4.9c0-1.3-.2-2.4-.5-3.3-.4-.9-.8-1.6-1.5-2.3C20.6.8 19.9.4 19 .1c-.9-.3-2-.5-3.3-.5C15.6 0 15.2 0 12 0z"/>
-      <path d="M12 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4z"/>
-      <circle cx="18.4" cy="5.6" r="1.4"/>
-    </svg>
-  </a>
-
-  <a href="https://youtube.com/TU_USUARIO" target="_blank" class="social-item" aria-label="YouTube">
-    <!-- YouTube -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1c-1.9-.5-9.4-.5-9.4-.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.5V8.5l6.2 3.5z"/>
-    </svg>
-  </a>
-
-  <a href="https://www.facebook.com/share/1CyvPAFhpM/" target="_blank" class="social-item" aria-label="Facebook">
-    <!-- Facebook -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M22.675 0H1.325A1.32 1.32 0 0 0 0 1.325v21.351A1.32 1.32 0 0 0 1.325 24h11.495v-9.294H9.847v-3.622h2.973V8.413c0-2.946 1.796-4.556 4.417-4.556 1.255 0 2.335.093 2.646.135v3.07h-1.815c-1.425 0-1.7.677-1.7 1.67v2.187h3.4l-.443 3.622h-2.957V24h5.797A1.32 1.32 0 0 0 24 22.676V1.325A1.32 1.32 0 0 0 22.675 0z"/>
-    </svg>
-  </a>
-</div>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8157b802526b4f129d37a20cce3da0ce"}'></script><!-- End Cloudflare Web Analytics -->
-<div id="floating-gallery" class="desktop-only"></div>
-
-<script src="main.js" defer></script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17847026726">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17847026726');
-</script>
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
