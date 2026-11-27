@@ -2092,6 +2092,14 @@ button, input, select, textarea {
   gap: 8px;
 }
 
+.payment-card .btn {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+  padding: 9px 12px;
+  font-size: 0.78rem;
+}
+
 .payment-card {
   background: var(--surface-soft);
   border: 1.5px solid var(--border-light);
@@ -2905,6 +2913,7 @@ button, input, select, textarea {
   align-items: center;
   gap: 10px;
   min-width: 0;
+  flex: 1;
 }
 
 .fqb-badge {
@@ -2915,26 +2924,35 @@ button, input, select, textarea {
   font-size: 0.74rem;
   font-weight: 700;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .fqb-text {
   line-height: 1.15;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .fqb-text small {
   display: block;
   font-size: 0.68rem;
   color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fqb-text strong {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--gold-400);
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 170px;
+}
+
+.floating-quote-bar .btn {
+  flex-shrink: 0;
 }
 
 .toast-notification {
@@ -3023,11 +3041,51 @@ button, input, select, textarea {
   .container {
     width: calc(100% - 24px);
   }
+  .nav-inner {
+    gap: 8px;
+  }
+  .brand-lockup {
+    gap: 8px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .brand-logo-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
   .brand-name {
-    font-size: 0.96rem;
+    font-size: 1.04rem;
+    white-space: nowrap;
   }
   .brand-slogan {
-    font-size: 0.6rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .nav-controls {
+    gap: 6px;
+  }
+  .lang-switch button {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+  }
+  .mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.05rem;
+  }
+  .floating-quote-bar {
+    padding: 8px 10px 8px 12px;
+    gap: 8px;
+    border-radius: 18px;
+  }
+  .fqb-badge {
+    display: none;
+  }
+  .floating-quote-bar .btn {
+    padding: 8px 12px;
+    font-size: 0.76rem;
   }
   .trust-grid {
     grid-template-columns: 1fr;
